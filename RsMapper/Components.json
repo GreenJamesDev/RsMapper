@@ -1,5 +1,5 @@
 {
-    // Component Setings File
+    // Component Settings File
     // -----------------------
     // name        - Name of component.
     // type        - (Input, Output, Inline, Logic) Group of component.
@@ -22,7 +22,7 @@
 
             "name": "Redstone Torch",
             "type": "Input",
-            "image": "\\Imgs\\RS_Torch",
+            "image": "\\Imgs\\RS_Torch.png",
             "info": "A signal-emitting torch that can also be used for logic.",
             "acceptswire": "yes"
 
@@ -32,8 +32,8 @@
 
             "name": "Redstone Block",
             "type": "Input",
-            "image": "\\Imgs\\RS_Block",
-            "info": "A mineral block that always emitts a signal.",
+            "image": "\\Imgs\\RS_Block.png",
+            "info": "A mineral block that always emits a signal.",
             "acceptswire": "yes"
 
         },
@@ -42,13 +42,70 @@
 
             "name": "Button",
             "type": "Input",
-            "image": "\\Imgs\\RS_Button",
-            "info": "Emitts a signal for 1.5 seconds when pressed by the player.",
+            "image": "\\Imgs\\RS_Button.png",
+            "info": "Emits a signal for 1.5 seconds when pressed by the player.",
             "acceptswire": "yes"
 
-        }
+        },
 
+		{
 
+            "name": "Target",
+            "type": "Input",
+            "image": "\\Imgs\\RS_Target.png",
+            "info": "A block that emits a signal when hit with a projectile.",
+            "acceptswire": "yes"
 
+        },
+		
+		{
+
+            "name": "TNT",
+            "type": "Output",
+            "image": "\\Imgs\\TNT.png",
+            "info": "Explodes when ignited or recives a redstone signal.",
+            "acceptswire": "no"
+
+        },
+		
+		{
+
+            "name": "Daylight Sensor",
+            "type": "Input",
+            "image": "\\Imgs\\RS_DaySensor.png",
+            "info": "Emits a signal when it becomes day or night.",
+            "acceptswire": "yes"
+
+        },
+		
+		{
+
+            "name": "Repeater",
+            "type": "Inline",
+            "image": "\\Imgs\\RS_Repeater.png",
+            "info": "Delays and strengthens signals. Prevents signals from going two ways.",
+            "acceptswire": "yes"
+
+        },
+		
+		{
+
+            "name": "Comparator",
+            "type": "Logic",
+            "image": "\\Imgs\\RS_Comparator.png",
+            "info": "Compares the strength of signals.",
+            "acceptswire": "yes"
+
+        },
+		
+		{
+
+            "name": "Observer",
+            "type": "Input",
+            "image": "\\Imgs\\RS_Observer.png",
+            "info": "Emits a signal when a block state changes.",
+            "acceptswire": "yes"
+
+        },
     ]
 }
