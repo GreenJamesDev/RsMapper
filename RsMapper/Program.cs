@@ -14,8 +14,13 @@ namespace RsMapper
         [STAThread]
         static void Main()
         {
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            PrgmSelfCheck sc = new PrgmSelfCheck();
+            sc.CheckAll();
+
             Application.Run(new Form1());
         }
     }

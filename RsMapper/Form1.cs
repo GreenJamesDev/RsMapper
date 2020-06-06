@@ -47,7 +47,7 @@ namespace RsMapper
         // Read components json and retrieve redstone components.
         public void GetComps()
         {
-            using (StreamReader r = new StreamReader("Components.json"))
+            using (StreamReader r = new StreamReader(PrgmSelfCheck.ComponentsJson))
             {
                 string json = r.ReadToEnd();
                 Console.Write(json);
