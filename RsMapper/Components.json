@@ -1,0 +1,54 @@
+{
+    // Component Setings File
+    // -----------------------
+    // name        - Name of component.
+    // type        - (Input, Output, Inline, Logic) Group of component.
+    // image       - Image representing the component in the GUI.
+    // info        - Text to be shown in a tooltip box.
+    // acceptswire - Does redstone wire connect to this component by itself?
+    "RsComponents": [
+
+        {
+
+            "name": "Redstone Lamp",
+            "type": "Output",
+            "image": "\\Imgs\\RS_Lamp.png",
+            "info": "A light-emitting block powered by redstone.",
+            "acceptswire": "no"
+
+        },
+
+        {
+
+            "name": "Redstone Torch",
+            "type": "Input",
+            "image": "\\Imgs\\RS_Torch",
+            "info": "A signal-emitting torch that can also be used for logic.",
+            "acceptswire": "yes"
+
+        },
+
+        {
+
+            "name": "Redstone Block",
+            "type": "Input",
+            "image": "\\Imgs\\RS_Block",
+            "info": "A mineral block that always emitts a signal.",
+            "acceptswire": "yes"
+
+        },
+
+        {
+
+            "name": "Button",
+            "type": "Input",
+            "image": "\\Imgs\\RS_Button",
+            "info": "Emitts a signal for 1.5 seconds when pressed by the player.",
+            "acceptswire": "yes"
+
+        }
+
+
+
+    ]
+}
