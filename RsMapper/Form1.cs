@@ -16,6 +16,7 @@ using Microsoft.Win32.SafeHandles;
 using System.Reflection;
 using System.Drawing.Drawing2D;
 using System.Threading;
+using System.Diagnostics;
 
 namespace RsMapper
 {
@@ -42,6 +43,7 @@ namespace RsMapper
         public Form1()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
         }
         
         // Read components json and retrieve redstone components.
@@ -118,13 +120,15 @@ namespace RsMapper
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
 
+            Graphics g = panel1.CreateGraphics();
+            Pen pen = new Pen(Color.Black);
+            panel1.Refresh();
+
+            panel1.SuspendLayout();
             // Is a component selected?
             if (listView1.SelectedItems.Count > 0)
             {
-                Graphics g = panel1.CreateGraphics();
-                panel1.SuspendLayout();
-                Refresh();
-                
+                picb = new PictureBox();
 
                 // Get the selected item.
                 ListViewItem listvi = listView1.SelectedItems[0];
@@ -133,12 +137,12 @@ namespace RsMapper
 
 
                 // Grid pattern:
-                
-                
+
+
                 // Get nearest multiple of 50 and set this to the X and Y coordinates.
-                p.X = NearestMultiple(e.Location.X, 50);
-                p.Y = NearestMultiple(e.Location.Y, 50);
-                
+                p.X = NearestMultiple(panel1.PointToClient(MousePosition).X, 50);
+                p.Y = NearestMultiple(panel1.PointToClient(MousePosition).Y, 50);
+
                 // Set rect location to a grid location.
                 rect.Location = p;
 
@@ -148,15 +152,11 @@ namespace RsMapper
 
                 // Display an image of the component that follows the cursor.
 
-                g.InterpolationMode = InterpolationMode.NearestNeighbor;
-                g.PixelOffsetMode = PixelOffsetMode.None;
-                g.CompositingMode = CompositingMode.SourceCopy;
-                g.SmoothingMode = SmoothingMode.None;
                 g.DrawImage(compImg, rect);
-                panel1.ResumeLayout();
 
 
             }
+            panel1.ResumeLayout();
         }
         
         /// <summary>
@@ -189,7 +189,12 @@ namespace RsMapper
                 Graphics graphics = Graphics.FromImage(src);
                 graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
                 graphics.PixelOffsetMode = PixelOffsetMode.None;
-                
+
+
+
+                // Get nearest multiple of 50 and set this to the X and Y coordinates.
+                p.X = NearestMultiple(panel1.PointToClient(MousePosition).X, 50);
+                p.Y = NearestMultiple(panel1.PointToClient(MousePosition).Y, 50);
 
                 // Set rect location to a grid location.
                 rect.Location = p;
@@ -261,6 +266,8 @@ namespace RsMapper
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form1.ActiveForm.Text = "RsMapper - Untitled";
+            path = null;
+            unsavedChanges = false;
             foreach(PictureBox picb in PictureBoxes)
             {
                 picb.Dispose();
@@ -300,7 +307,7 @@ namespace RsMapper
                     // No unsaved changes.
                     Form1.ActiveForm.Text = "RsMapper - " + path;
                     unsavedChanges = false;
-                }
+                } 
 
             } else
             {
@@ -402,27 +409,21 @@ namespace RsMapper
             
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        protected void panel1_Paint(object sender, PaintEventArgs e)
         {
-            Graphics g = panel1.CreateGraphics();
-            Pen pen = new Pen(Color.Black);
-
             
-            for (int y = 0; y < 50; ++y)
-            {
-                g.DrawLine(pen, 0, y * 50, 100 * 50, y * 50);
-            }
-
-            for (int x = 0; x < 50; ++x)
-            {
-                g.DrawLine(pen, x * 50, 0, x * 50, 100 * 50);
-            }
             
+
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
             
+        }
+
+        private void documentationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/GreenJamesDev/RsMapper/wiki");
         }
     }
 }

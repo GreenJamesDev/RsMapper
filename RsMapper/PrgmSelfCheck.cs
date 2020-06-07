@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Net;
 using System.Windows.Forms;
+using RsMapper.Forms;
 
 namespace RsMapper
 {
@@ -15,6 +16,7 @@ namespace RsMapper
         public static string ComponentsJson = "Components.json";
         public static string JsonNet =        "Newtonsoft.Json.dll";
         public static string JsonNetXml =     "Newtonsoft.Json.xml";
+        
 
         WebClient wc = new WebClient();
 
@@ -30,9 +32,8 @@ namespace RsMapper
                 if(MessageBox.Show("The file " + ComponentsJson + " is missing. Would you like to redownload it?", "Missing Dependancy", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
                 {
 
-                    // Reinstall the file if the user clicks yes.
-                    wc.DownloadFile("https://raw.githubusercontent.com/GreenJamesDev/RsMapper/master/RsMapper/Components.json", AppDomain.CurrentDomain.BaseDirectory + "Components.json");
-
+                    DownloadProgress downloadProgress = new DownloadProgress("https://raw.githubusercontent.com/GreenJamesDev/RsMapper/master/RsMapper/Components.json", ComponentsJson);
+                    downloadProgress.ShowDialog();
 
                 } else
                 {
