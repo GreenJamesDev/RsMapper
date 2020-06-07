@@ -17,6 +17,7 @@ using System.Reflection;
 using System.Drawing.Drawing2D;
 using System.Threading;
 using System.Diagnostics;
+using RsMapper.Forms.Controls;
 
 namespace RsMapper
 {
@@ -392,7 +393,7 @@ namespace RsMapper
                 // Is a component selected?
                 if (listView1.SelectedItems.Count > 0)
                 {
-                    picb = new PictureBox();
+                    picb = new NNPictureBox();
 
 
                     // Get the selected item.
@@ -446,7 +447,7 @@ namespace RsMapper
             } else if (e.Button == MouseButtons.Right)
             {
 
-                picb = new PictureBox();
+                picb = new NNPictureBox();
 
                 if (wireListView.SelectedItems.Count > 0)
                 {

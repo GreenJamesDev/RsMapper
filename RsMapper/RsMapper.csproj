@@ -70,6 +70,9 @@
     <Compile Include="Forms\Controls\DrawPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Forms\Controls\NNPictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Forms\DownloadProgress.cs">
       <SubType>Form</SubType>
     </Compile>
