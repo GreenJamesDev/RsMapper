@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ComponentTile.cs" />
+    <Compile Include="CursorControlLocate.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +179,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon_0uP_icon.ico" />
+    <Content Include="Imgs\Wires\RS_TDown.png" />
+    <Content Include="Imgs\Wires\RS_TLeft.png" />
+    <Content Include="Imgs\Wires\RS_TRight.png" />
+    <Content Include="Imgs\Wires\RS_TUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Parts\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

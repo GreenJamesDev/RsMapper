@@ -27,6 +27,7 @@ namespace RsMapper
         public RootObject compList { get; set; }
         ImageList imgl;
         List<PictureBox> PictureBoxes;
+        List<PictureBox> RedoList;
         PictureBox picb;
         
         // MISC VARIABLES
@@ -89,7 +90,7 @@ namespace RsMapper
             GetComps(); // Load redstone components into the program.
             toolStripLabel.Text = about.AssemblyTitle + " " + about.AssemblyVersion; // Display name and version in the tool strip;
             PictureBoxes = new List<PictureBox>();
-            
+            RedoList = new List<PictureBox>();
 
 
             p = new Point();
@@ -119,10 +120,11 @@ namespace RsMapper
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
-
-            Graphics g = panel1.CreateGraphics();
-            Pen pen = new Pen(Color.Black);
-            panel1.Refresh();
+             
+            Graphics g = panel1.CreateGraphics();                    // Create graphics.             
+            g.InterpolationMode = InterpolationMode.NearestNeighbor; // Maintain pixelated quality while zooming.
+            Pen pen = new Pen(Color.Black);                          // Set pen color to black.
+            panel1.Refresh();                                        // Force the panel to repaint.
 
             panel1.SuspendLayout();
             // Is a component selected?
@@ -172,56 +174,7 @@ namespace RsMapper
 
         private void panel1_Click(object sender, EventArgs e)
         {
-            // Is a component selected?
-            if (listView1.SelectedItems.Count > 0)
-            {
-                picb = new PictureBox();
-                
-
-                // Get the selected item.
-                ListViewItem listvi = listView1.SelectedItems[0];
-                Image compImg = imgl.Images[listvi.ImageIndex];
-                
-                Rectangle rect = new Rectangle();
-
-                Bitmap src = (Bitmap)compImg;
-                
-                Graphics graphics = Graphics.FromImage(src);
-                graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
-                graphics.PixelOffsetMode = PixelOffsetMode.None;
-
-
-
-                // Get nearest multiple of 50 and set this to the X and Y coordinates.
-                p.X = NearestMultiple(panel1.PointToClient(MousePosition).X, 50);
-                p.Y = NearestMultiple(panel1.PointToClient(MousePosition).Y, 50);
-
-                // Set rect location to a grid location.
-                rect.Location = p;
-
-                // Set image height and width to 50.
-                rect.Width = 50;
-                rect.Height = 50;
-                
-
-                picb.Parent = panel1;
-                picb.Location = p;
-                
-                picb.Image = src;
-                picb.Size = rect.Size;
-                picb.SizeMode = PictureBoxSizeMode.StretchImage;
-                picb.Visible = true;
-
-                // Add component to the list.
-                PictureBoxes.Add(picb);
-
-                // Tell the user there are unsaved changes.
-                if(unsavedChanges == false)
-                {
-                    Form1.ActiveForm.Text = ActiveForm.Text + "*";
-                    unsavedChanges = true;
-                } 
-            }
+            
         }
 
         // Exit the application.
@@ -265,6 +218,7 @@ namespace RsMapper
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // Revert the window to new.
             Form1.ActiveForm.Text = "RsMapper - Untitled";
             path = null;
             unsavedChanges = false;
@@ -272,6 +226,10 @@ namespace RsMapper
             {
                 picb.Dispose();
             }
+
+            // Disable undo/redo buttons.
+            undoToolStripMenuItem.Enabled = false;
+            redoToolStripMenuItem.Enabled = false;
 
         }
 
@@ -424,6 +382,169 @@ namespace RsMapper
         private void documentationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Process.Start("https://github.com/GreenJamesDev/RsMapper/wiki");
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Left)
+            {
+
+                // Is a component selected?
+                if (listView1.SelectedItems.Count > 0)
+                {
+                    picb = new PictureBox();
+
+
+                    // Get the selected item.
+                    ListViewItem listvi = listView1.SelectedItems[0];
+                    Image compImg = imgl.Images[listvi.ImageIndex];
+
+                    Rectangle rect = new Rectangle();
+
+                    Bitmap src = (Bitmap)compImg;
+
+                    Graphics graphics = Graphics.FromImage(src);
+                    graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
+                    graphics.PixelOffsetMode = PixelOffsetMode.None;
+
+
+
+                    // Get nearest multiple of 50 and set this to the X and Y coordinates.
+                    p.X = NearestMultiple(panel1.PointToClient(MousePosition).X, 50);
+                    p.Y = NearestMultiple(panel1.PointToClient(MousePosition).Y, 50);
+
+                    // Set rect location to a grid location.
+                    rect.Location = p;
+
+                    // Set image height and width to 50.
+                    rect.Width = 50;
+                    rect.Height = 50;
+
+
+                    picb.Parent = panel1;
+                    picb.Location = p;
+
+                    picb.Image = src;
+                    picb.Size = rect.Size;
+                    picb.SizeMode = PictureBoxSizeMode.StretchImage;
+                    picb.Visible = true;
+
+                    // Add component to the list.
+                    PictureBoxes.Add(picb);
+
+                    undoToolStripMenuItem.Enabled = true;
+
+                    // Tell the user there are unsaved changes.
+                    if (unsavedChanges == false)
+                    {
+                        Form1.ActiveForm.Text = ActiveForm.Text + "*";
+                        unsavedChanges = true;
+                    }
+                }
+
+            // Place Wires
+            } else if (e.Button == MouseButtons.Right)
+            {
+
+                picb = new PictureBox();
+
+                if (wireListView.SelectedItems.Count > 0)
+                {
+                    // Get the selected item.
+                    ListViewItem listvi = wireListView.SelectedItems[0];
+                    Image compImg = wireImageList.Images[listvi.ImageIndex];
+
+                    Rectangle rect = new Rectangle();
+
+                    Bitmap src = (Bitmap)compImg;
+
+                    Graphics graphics = Graphics.FromImage(src);
+                    graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
+                    graphics.PixelOffsetMode = PixelOffsetMode.None;
+
+
+
+                    // Get nearest multiple of 50 and set this to the X and Y coordinates.
+                    p.X = NearestMultiple(panel1.PointToClient(MousePosition).X, 50);
+                    p.Y = NearestMultiple(panel1.PointToClient(MousePosition).Y, 50);
+
+                    // Set rect location to a grid location.
+                    rect.Location = p;
+
+                    // Set image height and width to 50.
+                    rect.Width = 50;
+                    rect.Height = 50;
+
+
+                    picb.Parent = panel1;
+                    picb.Location = p;
+
+                    picb.Image = src;
+                    picb.Size = rect.Size;
+                    picb.SizeMode = PictureBoxSizeMode.StretchImage;
+                    picb.Visible = true;
+
+                    // Add component to the list.
+                    PictureBoxes.Add(picb);
+
+                    undoToolStripMenuItem.Enabled = true;
+
+                    // Tell the user there are unsaved changes.
+                    if (unsavedChanges == false)
+                    {
+                        Form1.ActiveForm.Text = ActiveForm.Text + "*";
+                        unsavedChanges = true;
+                    }
+                }
+
+            } else if(e.Button == MouseButtons.Middle)
+            {
+                if (CursorControlLocate.FindControlAtCursor(panel1) is PictureBox)
+                {
+
+                    
+
+
+                }
+            }
+        }
+
+        // UNDO
+        private void undoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            PictureBoxes.Last().Visible = false; // Hide last change.
+            RedoList.Add(PictureBoxes.Last());   // Add it to the redo list.
+            PictureBoxes.Remove(PictureBoxes.Last()); // Remove it from the main list.
+            redoToolStripMenuItem.Enabled = true; // Enable redo button.
+
+            // If there are no more things to undo, disable button.
+            if (PictureBoxes.Count == 0)
+            {
+                undoToolStripMenuItem.Enabled = false;
+            } else
+            {
+                undoToolStripMenuItem.Enabled = true;
+            }
+        }
+
+        // REDO
+        private void redoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RedoList.Last().Visible = true; // Show the image.
+            PictureBoxes.Add(RedoList.Last()); // Add it back to the main list.
+            RedoList.Remove(RedoList.Last()); // Remove it from the redo list.
+            undoToolStripMenuItem.Enabled = true; // Enable undo button.
+
+            // If there are no more things to redo, disable button.
+            if (RedoList.Count == 0)
+            {
+                redoToolStripMenuItem.Enabled = false;
+            }
+            else
+            {
+                redoToolStripMenuItem.Enabled = true;
+            }
         }
     }
 }
