@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("RsMapper")]
-[assembly: AssemblyDescription("An open source tool for drawing redstone schematics. Minecraft, redstone, and any redstone components included with this software were created by Mojang Studios. Quantum has no association with Mojang Studios or its parent companies.")]
+[assembly: AssemblyDescription("An open source tool for drawing redstone schematics. Minecraft, redstone, and any redstone components included with this software were created by Mojang Studios. GreenJames has no association with Mojang Studios or its parent companies.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Quantum Software")]
+[assembly: AssemblyCompany("GreenJames")]
 [assembly: AssemblyProduct("RsMapper")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
