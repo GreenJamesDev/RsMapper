@@ -10,7 +10,7 @@ _All features listed below are planned for the beta 0.1.0.0 release._
 Easily add custom components through the components.json file. Even modded blocks can be represented in RsMapper!
 
 ### Automatically Check for Updates
-Once installed, you'll never have to manually visit the download page again just to update the program! _Can be disabled in settings._
+Once installed, you'll never have to manually visit the download page again just to update the program!
 
 ### Self Repair
 RsMapper can redownload any settings files if they are missing.
