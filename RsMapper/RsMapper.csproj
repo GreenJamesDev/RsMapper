@@ -67,6 +67,12 @@
     <Compile Include="Forms\AboutBox1.Designer.cs">
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CommandEnter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CommandEnter.Designer.cs">
+      <DependentUpon>CommandEnter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Controls\DrawPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -99,6 +105,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AboutBox1.resx">
       <DependentUpon>AboutBox1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CommandEnter.resx">
+      <DependentUpon>CommandEnter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DownloadProgress.resx">
       <DependentUpon>DownloadProgress.cs</DependentUpon>
@@ -188,6 +197,7 @@
     <Content Include="Imgs\Wires\RS_TUp.png" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="GFX\" />
     <Folder Include="Parts\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

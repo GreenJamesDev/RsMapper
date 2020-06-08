@@ -43,7 +43,10 @@ namespace RsMapper.Forms
 
         private void client_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
         {
+            wc.Dispose();
             this.Close();
+            this.Dispose();
+
         }
 
         private void client_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)

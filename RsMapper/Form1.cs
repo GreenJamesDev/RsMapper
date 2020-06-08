@@ -30,7 +30,7 @@ namespace RsMapper
         List<PictureBox> PictureBoxes;
         List<PictureBox> RedoList;
         PictureBox picb;
-        
+
         // MISC VARIABLES
         int indx;
         RsComponent CurSelectedComp;
@@ -121,7 +121,7 @@ namespace RsMapper
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
-             
+            panel1.Focus();
             Graphics g = panel1.CreateGraphics();                    // Create graphics.             
             g.InterpolationMode = InterpolationMode.NearestNeighbor; // Maintain pixelated quality while zooming.
             Pen pen = new Pen(Color.Black);                          // Set pen color to black.
@@ -138,6 +138,7 @@ namespace RsMapper
                 Image compImg = imgl.Images[listvi.ImageIndex];
                 Rectangle rect = new Rectangle();
 
+                Image src = Rotate(compImg);
 
                 // Grid pattern:
 
@@ -148,6 +149,7 @@ namespace RsMapper
 
                 // Set rect location to a grid location.
                 rect.Location = p;
+                
 
                 // Set image height and width to 50.
                 rect.Width = 50;
@@ -155,7 +157,7 @@ namespace RsMapper
 
                 // Display an image of the component that follows the cursor.
 
-                g.DrawImage(compImg, rect);
+                g.DrawImage(src, rect);
 
 
             }
@@ -208,6 +210,8 @@ namespace RsMapper
                 // No unsaved changes.
                 Form1.ActiveForm.Text = "RsMapper - " + path;
                 unsavedChanges = false;
+
+                bm.Dispose();
             }
         }
 
@@ -266,6 +270,8 @@ namespace RsMapper
                     // No unsaved changes.
                     Form1.ActiveForm.Text = "RsMapper - " + path;
                     unsavedChanges = false;
+
+                    sfd.Dispose();
                 } 
 
             } else
@@ -284,6 +290,8 @@ namespace RsMapper
                 Form1.ActiveForm.Text = "RsMapper - " + path;
                 unsavedChanges = false;
 
+                bm.Dispose();
+                
 
             }
 
@@ -375,10 +383,7 @@ namespace RsMapper
 
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-            
-        }
+       
 
         private void documentationToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -402,17 +407,30 @@ namespace RsMapper
 
                     Rectangle rect = new Rectangle();
 
-                    Bitmap src = (Bitmap)compImg;
+                    Image src = Rotate(compImg);
 
                     Graphics graphics = Graphics.FromImage(src);
                     graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
                     graphics.PixelOffsetMode = PixelOffsetMode.None;
 
-
-
+                    
                     // Get nearest multiple of 50 and set this to the X and Y coordinates.
                     p.X = NearestMultiple(panel1.PointToClient(MousePosition).X, 50);
                     p.Y = NearestMultiple(panel1.PointToClient(MousePosition).Y, 50);
+
+                    // If the component is a command block, show the set command
+                    // dialog and give the command block the command.
+                    if (listvi.Text == "Command Block")
+                    {
+                        ToolTip tt = new ToolTip();
+                        CommandEnter ce = new CommandEnter();
+
+                        if (ce.ShowDialog() == DialogResult.OK)
+                        {
+
+                            tt.SetToolTip(picb, ce.Command);
+                        }
+                    } 
 
                     // Set rect location to a grid location.
                     rect.Location = p;
@@ -464,7 +482,7 @@ namespace RsMapper
                     graphics.PixelOffsetMode = PixelOffsetMode.None;
 
 
-
+                    
                     // Get nearest multiple of 50 and set this to the X and Y coordinates.
                     p.X = NearestMultiple(panel1.PointToClient(MousePosition).X, 50);
                     p.Y = NearestMultiple(panel1.PointToClient(MousePosition).Y, 50);
@@ -547,5 +565,57 @@ namespace RsMapper
                 redoToolStripMenuItem.Enabled = true;
             }
         }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.A)
+            {
+                
+                rotationStatusLabel.Text = "LEFT";
+                
+            } else if(e.KeyCode == Keys.D)
+            {
+                
+                rotationStatusLabel.Text = "RIGHT";
+
+            } else if(e.KeyCode == Keys.W)
+            {
+                
+                rotationStatusLabel.Text = "UP";
+
+            } else if(e.KeyCode == Keys.S)
+            {
+                
+                rotationStatusLabel.Text = "DOWN";
+            }
+        }
+
+        /// <summary>
+        /// Rotate the image depending on current direction.
+        /// </summary>
+        /// <param name="img">Image to be rotated.</param>
+        private Image Rotate(Image img) {
+
+            switch (rotationStatusLabel.Text)
+            {
+
+                case "UP":
+                    img.RotateFlip(RotateFlipType.RotateNoneFlipNone);
+                    break;
+                case "DOWN":
+                    img.RotateFlip(RotateFlipType.Rotate180FlipNone);
+                    break;
+                case "LEFT":
+                    img.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                    break;
+                case "RIGHT":
+                    img.RotateFlip(RotateFlipType.Rotate90FlipNone);
+                    break;
+            }
+            return img;
+
+        }
+        
+
     }
 }

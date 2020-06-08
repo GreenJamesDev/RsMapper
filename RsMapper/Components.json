@@ -2,7 +2,7 @@
     // Component Settings File
     // -----------------------
     // name        - Name of component.
-    // type        - (Input, Output, Inline, Logic) Group of component.
+    // type        - (Input, Output, Inline, Logic, Misc) Group of the component.
     // image       - Image representing the component in the GUI.
     // info        - Text to be shown in a tooltip box.
     // acceptswire - Does redstone wire connect to this component by itself?
@@ -105,6 +105,106 @@
             "image": "\\Imgs\\RS_Observer.png",
             "info": "Emits a signal when a block state changes.",
             "acceptswire": "yes"
+
+        },
+		
+		{
+
+            "name": "Command Block",
+            "type": "Logic",
+            "image": "\\Imgs\\RS_Command.png",
+            "info": "Executes commands entered by the player.",
+            "acceptswire": "no"
+
+        },
+		
+		{
+
+            "name": "Dispenser",
+            "type": "Output",
+            "image": "\\Imgs\\RS_Dispenser.png",
+            "info": "Dispenses items.",
+            "acceptswire": "no"
+
+        },
+		
+		{
+
+            "name": "Dropper",
+            "type": "Output",
+            "image": "\\Imgs\\RS_Dropper.png",
+            "info": "Drops items.",
+            "acceptswire": "no"
+
+        },
+		
+		{
+
+            "name": "Chest",
+            "type": "Misc",
+            "image": "\\Imgs\\RS_Chest.png",
+            "info": "Holds items.",
+            "acceptswire": "no"
+
+        },
+		
+		{
+
+            "name": "Trapped Chest",
+            "type": "Input",
+            "image": "\\Imgs\\RS_TChest.png",
+            "info": "A chest that emits a signal when its contents change.",
+            "acceptswire": "no"
+
+        },
+		
+		{
+
+            "name": "Pressure Plate",
+            "type": "Input",
+            "image": "\\Imgs\\RS_PressurePlate.png",
+            "info": "Emits a signal when walked on.",
+            "acceptswire": "no"
+
+        },
+		
+		{
+
+            "name": "Gold Block",
+            "type": "Misc",
+            "image": "\\Imgs\\RS_GoldBlock.png",
+            "info": "A block of nine gold ingots.",
+            "acceptswire": "no"
+
+        },
+		
+		{
+
+            "name": "Hopper",
+            "type": "Misc",
+            "image": "\\Imgs\\RS_Hopper.png",
+            "info": "Transports items from block to block.",
+            "acceptswire": "no"
+
+        },
+		
+		{
+
+            "name": "Piston",
+            "type": "Output",
+            "image": "\\Imgs\\RS_Piston.png",
+            "info": "Pushes blocks",
+            "acceptswire": "no"
+
+        },
+		
+		{
+
+            "name": "Sticky Piston",
+            "type": "Output",
+            "image": "\\Imgs\\RS_SPiston.png",
+            "info": "Pushes and pulls blocks.",
+            "acceptswire": "no"
 
         },
     ]
