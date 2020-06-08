@@ -13,7 +13,7 @@ Easily add custom components through the components.json file. Even modded block
 Once installed, you'll never have to manually visit the download page again just to update the program!
 
 ### Self Repair
-RsMapper can redownload any settings files if they are missing.
+RsMapper can redownload Components.json if it's missing.
 
 ### More on the way!
 Many other features are planned including multiple wire colors and custom component packs.
