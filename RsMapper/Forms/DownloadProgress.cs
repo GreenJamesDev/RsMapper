@@ -30,7 +30,7 @@ namespace RsMapper.Forms
             try
             {
                 // Reinstall the file if the user clicks yes.
-                wc.DownloadFileAsync(new Uri(source), AppDomain.CurrentDomain.BaseDirectory + "Components.json");
+                wc.DownloadFileAsync(new Uri(source), AppDomain.CurrentDomain.BaseDirectory + local);
                 wc.DownloadProgressChanged += new DownloadProgressChangedEventHandler(client_DownloadProgressChanged);
                 wc.DownloadFileCompleted += new AsyncCompletedEventHandler(client_DownloadFileCompleted);
             }

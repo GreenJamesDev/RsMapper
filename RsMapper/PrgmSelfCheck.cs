@@ -25,7 +25,10 @@ namespace RsMapper
         /// </summary>
         public void CheckAll()
         {
-            if(File.Exists(ComponentsJson) == false)
+            UpdateCheck uc = new UpdateCheck();
+            uc.ShowDialog();
+            
+            if (File.Exists(ComponentsJson) == false)
             {
 
                 // Check for components settings file.
@@ -44,7 +47,7 @@ namespace RsMapper
 
             }
 
-
+            uc.Dispose();
 
         }
         

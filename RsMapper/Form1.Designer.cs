@@ -29,26 +29,27 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("Input", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup7 = new System.Windows.Forms.ListViewGroup("Output", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup8 = new System.Windows.Forms.ListViewGroup("Inline", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup9 = new System.Windows.Forms.ListViewGroup("Logic", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup10 = new System.Windows.Forms.ListViewGroup("Misc", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem("Cross", 0);
-            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem("Dot", 1);
-            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem("Horizontal", 2);
-            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem("Vertical", 3);
-            System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem("Left Down", 4);
-            System.Windows.Forms.ListViewItem listViewItem18 = new System.Windows.Forms.ListViewItem("Right Down", 5);
-            System.Windows.Forms.ListViewItem listViewItem19 = new System.Windows.Forms.ListViewItem("Left Up", 6);
-            System.Windows.Forms.ListViewItem listViewItem20 = new System.Windows.Forms.ListViewItem("Right Up", 7);
-            System.Windows.Forms.ListViewItem listViewItem21 = new System.Windows.Forms.ListViewItem("T Down", 8);
-            System.Windows.Forms.ListViewItem listViewItem22 = new System.Windows.Forms.ListViewItem("T Left", 9);
-            System.Windows.Forms.ListViewItem listViewItem23 = new System.Windows.Forms.ListViewItem("T Right", 10);
-            System.Windows.Forms.ListViewItem listViewItem24 = new System.Windows.Forms.ListViewItem("T Up", 11);
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Input", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Output", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("Inline", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Logic", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("Misc", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Cross", 0);
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Dot", 1);
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("Horizontal", 2);
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("Vertical", 3);
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("Left Down", 4);
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("Right Down", 5);
+            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("Left Up", 6);
+            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("Right Up", 7);
+            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("T Down", 8);
+            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("T Left", 9);
+            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("T Right", 10);
+            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("T Up", 11);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.rotationStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,7 +63,6 @@
             this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rsMapperToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -76,7 +76,6 @@
             this.wireImageList = new System.Windows.Forms.ImageList(this.components);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.rotationStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel1 = new RsMapper.Forms.Controls.DrawPanel();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -107,6 +106,13 @@
             this.toolStripLabel.Name = "toolStripLabel";
             this.toolStripLabel.Size = new System.Drawing.Size(60, 17);
             this.toolStripLabel.Text = "RsMapper";
+            // 
+            // rotationStatusLabel
+            // 
+            this.rotationStatusLabel.Margin = new System.Windows.Forms.Padding(60, 3, 0, 2);
+            this.rotationStatusLabel.Name = "rotationStatusLabel";
+            this.rotationStatusLabel.Size = new System.Drawing.Size(22, 17);
+            this.rotationStatusLabel.Text = "UP";
             // 
             // menuStrip1
             // 
@@ -139,40 +145,40 @@
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(138, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveAsToolStripMenuItem.Text = "Save As...";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(138, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -190,7 +196,7 @@
             this.undoToolStripMenuItem.Enabled = false;
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
             this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.undoToolStripMenuItem.Text = "Undo";
             this.undoToolStripMenuItem.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
             // 
@@ -199,7 +205,7 @@
             this.redoToolStripMenuItem.Enabled = false;
             this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
             this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.redoToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.redoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.redoToolStripMenuItem.Text = "Redo";
             this.redoToolStripMenuItem.Click += new System.EventHandler(this.redoToolStripMenuItem_Click);
             // 
@@ -212,23 +218,17 @@
             // rsMapperToolStripMenuItem
             // 
             this.rsMapperToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.settingsToolStripMenuItem,
             this.checkForUpdatesToolStripMenuItem});
             this.rsMapperToolStripMenuItem.Name = "rsMapperToolStripMenuItem";
             this.rsMapperToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
             this.rsMapperToolStripMenuItem.Text = "RsMapper";
-            // 
-            // settingsToolStripMenuItem
-            // 
-            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.settingsToolStripMenuItem.Text = "Settings...";
             // 
             // checkForUpdatesToolStripMenuItem
             // 
             this.checkForUpdatesToolStripMenuItem.Name = "checkForUpdatesToolStripMenuItem";
             this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.checkForUpdatesToolStripMenuItem.Text = "Check for Updates...";
+            this.checkForUpdatesToolStripMenuItem.Click += new System.EventHandler(this.checkForUpdatesToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -242,7 +242,7 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aboutToolStripMenuItem.Text = "About...";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -250,7 +250,7 @@
             // 
             this.documentationToolStripMenuItem.Name = "documentationToolStripMenuItem";
             this.documentationToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.documentationToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.documentationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.documentationToolStripMenuItem.Text = "Documentation";
             this.documentationToolStripMenuItem.Click += new System.EventHandler(this.documentationToolStripMenuItem_Click);
             // 
@@ -296,22 +296,22 @@
             // listView1
             // 
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            listViewGroup6.Header = "Input";
-            listViewGroup6.Name = "InputGroup";
-            listViewGroup7.Header = "Output";
-            listViewGroup7.Name = "OutputGroup";
-            listViewGroup8.Header = "Inline";
-            listViewGroup8.Name = "InlineGroup";
-            listViewGroup9.Header = "Logic";
-            listViewGroup9.Name = "LogicGroup";
-            listViewGroup10.Header = "Misc";
-            listViewGroup10.Name = "MiscGroup";
+            listViewGroup1.Header = "Input";
+            listViewGroup1.Name = "InputGroup";
+            listViewGroup2.Header = "Output";
+            listViewGroup2.Name = "OutputGroup";
+            listViewGroup3.Header = "Inline";
+            listViewGroup3.Name = "InlineGroup";
+            listViewGroup4.Header = "Logic";
+            listViewGroup4.Name = "LogicGroup";
+            listViewGroup5.Header = "Misc";
+            listViewGroup5.Name = "MiscGroup";
             this.listView1.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup6,
-            listViewGroup7,
-            listViewGroup8,
-            listViewGroup9,
-            listViewGroup10});
+            listViewGroup1,
+            listViewGroup2,
+            listViewGroup3,
+            listViewGroup4,
+            listViewGroup5});
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(3, 3);
             this.listView1.MultiSelect = false;
@@ -338,18 +338,18 @@
             this.wireListView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.wireListView.HideSelection = false;
             this.wireListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem13,
-            listViewItem14,
-            listViewItem15,
-            listViewItem16,
-            listViewItem17,
-            listViewItem18,
-            listViewItem19,
-            listViewItem20,
-            listViewItem21,
-            listViewItem22,
-            listViewItem23,
-            listViewItem24});
+            listViewItem1,
+            listViewItem2,
+            listViewItem3,
+            listViewItem4,
+            listViewItem5,
+            listViewItem6,
+            listViewItem7,
+            listViewItem8,
+            listViewItem9,
+            listViewItem10,
+            listViewItem11,
+            listViewItem12});
             this.wireListView.LargeImageList = this.wireImageList;
             this.wireListView.Location = new System.Drawing.Point(3, 3);
             this.wireListView.Name = "wireListView";
@@ -394,13 +394,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Workspace";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // rotationStatusLabel
-            // 
-            this.rotationStatusLabel.Margin = new System.Windows.Forms.Padding(60, 3, 0, 2);
-            this.rotationStatusLabel.Name = "rotationStatusLabel";
-            this.rotationStatusLabel.Size = new System.Drawing.Size(22, 17);
-            this.rotationStatusLabel.Text = "UP";
             // 
             // panel1
             // 
@@ -470,7 +463,6 @@
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem checkForUpdatesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem documentationToolStripMenuItem;

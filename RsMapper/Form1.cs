@@ -615,7 +615,12 @@ namespace RsMapper
             return img;
 
         }
-        
 
+        private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateCheck uc = new UpdateCheck();
+            uc.ShowDialog();
+            uc.Dispose();
+        }
     }
 }

@@ -39,6 +39,9 @@
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Octokit, Version=0.48.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Octokit.0.48.0\lib\net46\Octokit.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -91,6 +94,12 @@
     <Compile Include="Forms\UnsavedDialog.Designer.cs">
       <DependentUpon>UnsavedDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\UpdateCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UpdateCheck.Designer.cs">
+      <DependentUpon>UpdateCheck.cs</DependentUpon>
+    </Compile>
     <Compile Include="imgs.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -114,6 +123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UnsavedDialog.resx">
       <DependentUpon>UnsavedDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UpdateCheck.resx">
+      <DependentUpon>UpdateCheck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="imgs.resx">
       <Generator>ResXFileCodeGenerator</Generator>
