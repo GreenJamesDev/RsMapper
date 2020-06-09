@@ -18,6 +18,7 @@ using System.Drawing.Drawing2D;
 using System.Threading;
 using System.Diagnostics;
 using RsMapper.Forms.Controls;
+using System.Drawing.Printing;
 
 namespace RsMapper
 {
@@ -616,11 +617,44 @@ namespace RsMapper
 
         }
 
+        // Check for Updates
         private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UpdateCheck uc = new UpdateCheck();
             uc.ShowDialog();
             uc.Dispose();
+        }
+
+
+        // Print
+        private void printToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Show the print dialog and begin printing.
+            printDialog1.Document = printDocument1;
+            if(printDialog1.ShowDialog() == DialogResult.OK)
+            {
+                printDocument1.PrinterSettings = printDialog1.PrinterSettings;
+                printDocument1.Print();
+            }
+
+
+        }
+
+        private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
+        {
+
+            // Get panel size.
+            int width = panel1.Size.Width;
+            int height = panel1.Size.Height;
+
+            // Configure bitmap.
+            Bitmap bm = new Bitmap(width, height);
+            panel1.DrawToBitmap(bm, new Rectangle(0, 0, width, height));
+            Point loc = new Point(0, 0);
+            e.Graphics.DrawImage(bm, loc);
+
+            bm.Dispose();
+            
         }
     }
 }
