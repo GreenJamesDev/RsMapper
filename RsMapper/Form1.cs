@@ -30,7 +30,7 @@ namespace RsMapper
         ImageList imgl;
         List<PictureBox> PictureBoxes;
         List<PictureBox> RedoList;
-        PictureBox picb;
+        NNPictureBox picb;
 
         // MISC VARIABLES
         int indx;
@@ -132,7 +132,7 @@ namespace RsMapper
             // Is a component selected?
             if (listView1.SelectedItems.Count > 0)
             {
-                picb = new PictureBox();
+                picb = new NNPictureBox();
 
                 // Get the selected item.
                 ListViewItem listvi = listView1.SelectedItems[0];
@@ -423,13 +423,13 @@ namespace RsMapper
                     // dialog and give the command block the command.
                     if (listvi.Text == "Command Block")
                     {
-                        ToolTip tt = new ToolTip();
+                        
                         CommandEnter ce = new CommandEnter();
 
                         if (ce.ShowDialog() == DialogResult.OK)
                         {
 
-                            tt.SetToolTip(picb, ce.Command);
+                            picb.ComponentTag = ce.Command;
                         }
                     } 
 
@@ -443,9 +443,10 @@ namespace RsMapper
 
                     picb.Parent = panel1;
                     picb.Location = p;
-
+                    
                     picb.Image = src;
                     picb.Size = rect.Size;
+                    picb.ComponentName = listvi.Text;
                     picb.SizeMode = PictureBoxSizeMode.StretchImage;
                     picb.Visible = true;
 
@@ -498,7 +499,7 @@ namespace RsMapper
 
                     picb.Parent = panel1;
                     picb.Location = p;
-
+                    
                     picb.Image = src;
                     picb.Size = rect.Size;
                     picb.SizeMode = PictureBoxSizeMode.StretchImage;

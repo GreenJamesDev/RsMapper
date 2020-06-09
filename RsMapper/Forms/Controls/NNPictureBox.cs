@@ -9,8 +9,17 @@ using System.Windows.Forms;
 
 namespace RsMapper.Forms.Controls
 {
-    class NNPictureBox : PictureBox
+    public class NNPictureBox : PictureBox
     {
+        /// <summary>
+        /// The name of the block associated with the control.
+        /// </summary>
+        public string ComponentName { get; set; }
+
+        /// <summary>
+        /// Extra block info.
+        /// </summary>
+        public string ComponentTag { get; set; }
 
         public NNPictureBox()
         {
@@ -25,6 +34,15 @@ namespace RsMapper.Forms.Controls
             base.OnPaint(pe);
             
             Graphics g = pe.Graphics;
+        }
+
+        protected override void OnMouseHover(EventArgs e)
+        {
+            base.OnMouseHover(e);
+            ToolTip tt = new ToolTip();
+            
+            tt.SetToolTip(this, ComponentName + "\n" + ComponentTag);
+            
         }
     }
 }
