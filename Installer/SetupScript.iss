@@ -38,15 +38,8 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 
 [Files]
 Source: "C:\Users\James\source\repos\RsMapper\RsMapper\bin\Release\RsMapper.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\James\source\repos\RsMapper\RsMapper\bin\Release\Imgs\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "C:\Users\James\source\repos\RsMapper\RsMapper\bin\Release\Licenses\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "C:\Users\James\source\repos\RsMapper\RsMapper\bin\Release\Components.json"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\James\source\repos\RsMapper\RsMapper\bin\Release\Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\James\source\repos\RsMapper\RsMapper\bin\Release\Newtonsoft.Json.xml"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\James\source\repos\RsMapper\RsMapper\bin\Release\Octokit.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\James\source\repos\RsMapper\RsMapper\bin\Release\Octokit.xml"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\James\source\repos\RsMapper\RsMapper\bin\Release\RsMapper.exe.config"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\James\source\repos\RsMapper\RsMapper\bin\Release\RsMapper.pdb"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\James\source\repos\RsMapper\RsMapper\bin\Release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
