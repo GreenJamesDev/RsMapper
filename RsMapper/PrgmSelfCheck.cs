@@ -23,10 +23,9 @@ namespace RsMapper
         /// <summary>
         /// Check for any missing files that are required to start the program.
         /// </summary>
-        public void CheckAll()
+        public async void CheckAll()
         {
-            UpdateCheck uc = new UpdateCheck();
-            uc.ShowDialog();
+            
             
             if (File.Exists(ComponentsJson) == false)
             {
@@ -46,8 +45,6 @@ namespace RsMapper
                 }
 
             }
-
-            uc.Dispose();
 
         }
         
