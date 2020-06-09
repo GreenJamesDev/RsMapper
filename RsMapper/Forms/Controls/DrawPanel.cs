@@ -10,6 +10,11 @@ namespace RsMapper.Forms.Controls
 {
     public class DrawPanel : Panel
     {
+        /// <summary>
+        /// Determines whether or not to draw a grid onto the panel.
+        /// </summary>
+        public bool ShowGrid { get; set; }
+
         public DrawPanel()
         {
             // Enable double buffering.
@@ -34,19 +39,22 @@ namespace RsMapper.Forms.Controls
             // Call the OnPaint method of the base class.
             base.OnPaint(e);
 
-            // Draw a grid.
-            Graphics g = e.Graphics;
-            Pen pen = new Pen(Color.Black);
-
-
-            for (int y = 0; y < 50; ++y)
+            if (ShowGrid == true)
             {
-                g.DrawLine(pen, 0, y * 50, 100 * 50, y * 50);
-            }
+                // Draw a grid.
+                Graphics g = e.Graphics;
+                Pen pen = new Pen(Color.Black);
 
-            for (int x = 0; x < 50; ++x)
-            {
-                g.DrawLine(pen, x * 50, 0, x * 50, 100 * 50);
+
+                for (int y = 0; y < 50; ++y)
+                {
+                    g.DrawLine(pen, 0, y * 50, 100 * 50, y * 50);
+                }
+
+                for (int x = 0; x < 50; ++x)
+                {
+                    g.DrawLine(pen, x * 50, 0, x * 50, 100 * 50);
+                }
             }
         }
     }

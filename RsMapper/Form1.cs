@@ -656,5 +656,24 @@ namespace RsMapper
             bm.Dispose();
             
         }
+
+        // Toggle Gridlines on/off
+        private void showGridlinesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Off
+            if(showGridlinesToolStripMenuItem.CheckState == CheckState.Checked)
+            {
+                showGridlinesToolStripMenuItem.CheckState = CheckState.Unchecked;
+                panel1.ShowGrid = false;
+                panel1.Refresh();
+
+            // On
+            } else if(showGridlinesToolStripMenuItem.CheckState == CheckState.Unchecked)
+            {
+                showGridlinesToolStripMenuItem.CheckState = CheckState.Checked;
+                panel1.ShowGrid = true;
+                panel1.Refresh();
+            } 
+        }
     }
 }
