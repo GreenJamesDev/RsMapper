@@ -1,7 +1,7 @@
 # RsMapper
 
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/GreenJamesDev/RsMapper/issues)
-[![HitCount](http://hits.dwyl.com/{username}/{project-name}.svg)](http://hits.dwyl.com/{username}/{project-name})
+[![HitCount](http://hits.dwyl.com/GreenJamesDev/RsMapper.svg)](http://hits.dwyl.com/GreenJamesDev/RsMapper)
 
 An open-source redstone circuit planning and designing tool.
 
