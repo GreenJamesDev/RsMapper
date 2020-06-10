@@ -440,7 +440,7 @@ namespace RsMapper
                     rect.Width = 50;
                     rect.Height = 50;
 
-
+                    // Block setup.
                     picb.Parent = panel1;
                     picb.Location = p;
                     
@@ -496,10 +496,10 @@ namespace RsMapper
                     rect.Width = 50;
                     rect.Height = 50;
 
-
+                    // Block setup.
                     picb.Parent = panel1;
                     picb.Location = p;
-                    
+                    picb.ComponentName = "Wire";
                     picb.Image = src;
                     picb.Size = rect.Size;
                     picb.SizeMode = PictureBoxSizeMode.StretchImage;
