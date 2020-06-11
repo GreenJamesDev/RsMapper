@@ -523,7 +523,7 @@ namespace RsMapper
                 if (CursorControlLocate.FindControlAtCursor(panel1) is PictureBox)
                 {
 
-                    
+                    // TBA
 
 
                 }
@@ -693,6 +693,7 @@ namespace RsMapper
             
         }
 
+        // Change the color of the draw panel grid.
         private void gridColorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ColorDialog cd = new ColorDialog();
@@ -700,6 +701,12 @@ namespace RsMapper
             panel1.GridColor = cd.Color;
             cd.Dispose();
             panel1.Refresh();
+        }
+
+        // Takes the user to Github issues.
+        private void feedbackToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/GreenJamesDev/RsMapper/issues");
         }
     }
 }
