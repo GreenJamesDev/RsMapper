@@ -207,5 +207,25 @@
             "acceptswire": "no"
 
         },
+		
+		{
+
+            "name": "Door",
+            "type": "Output",
+            "image": "\\Imgs\\Door.png",
+            "info": "Used to keep mobs out of an area.",
+            "acceptswire": "no"
+
+        },
+		
+		{
+
+            "name": "Trap Door",
+            "type": "Output",
+            "image": "\\Imgs\\TDoor.png",
+            "info": "A one block tall door.",
+            "acceptswire": "no"
+
+        },
     ]
 }
