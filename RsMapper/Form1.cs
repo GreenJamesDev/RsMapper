@@ -708,5 +708,20 @@ namespace RsMapper
         {
             Process.Start("https://github.com/GreenJamesDev/RsMapper/issues");
         }
+
+        // Backup components.json.
+        private void backupComponentsjsonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Title = "Backup To";
+            saveFileDialog.Filter = "JSON files|*.json";
+            saveFileDialog.DefaultExt = "json";
+            saveFileDialog.AddExtension = true;
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+
+                File.Copy(AppDomain.CurrentDomain.BaseDirectory + PrgmSelfCheck.ComponentsJson, saveFileDialog.FileName);
+            }
+        }
     }
 }
