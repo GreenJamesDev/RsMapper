@@ -15,6 +15,11 @@ namespace RsMapper.Forms.Controls
         /// </summary>
         public bool ShowGrid { get; set; }
 
+        /// <summary>
+        /// The pen color of the block grid.
+        /// </summary>
+        public Color GridColor { get; set; }
+
         public DrawPanel()
         {
             // Enable double buffering.
@@ -43,7 +48,7 @@ namespace RsMapper.Forms.Controls
             {
                 // Draw a grid.
                 Graphics g = e.Graphics;
-                Pen pen = new Pen(Color.Black);
+                Pen pen = new Pen(GridColor);
 
 
                 for (int y = 0; y < 50; ++y)

@@ -676,5 +676,30 @@ namespace RsMapper
                 panel1.Refresh();
             } 
         }
+
+        
+        // Redownload a fresh copy of Components.json.
+        private void resetComponentsjsonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+             if (File.Exists(PrgmSelfCheck.ComponentsJson) == true)
+             {
+                 File.Delete(PrgmSelfCheck.ComponentsJson);
+                 DownloadProgress downloadProgress = new DownloadProgress("https://raw.githubusercontent.com/GreenJamesDev/RsMapper/master/RsMapper/Components.json", PrgmSelfCheck.ComponentsJson);
+                 downloadProgress.ShowDialog();
+                 downloadProgress.Dispose();
+             }
+            MessageBox.Show("You must restart RsMapper for these changes to take effect.", "Restart Required", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
+        }
+
+        private void gridColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ColorDialog cd = new ColorDialog();
+            cd.ShowDialog();
+            panel1.GridColor = cd.Color;
+            cd.Dispose();
+            panel1.Refresh();
+        }
     }
 }

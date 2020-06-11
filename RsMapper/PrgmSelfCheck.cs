@@ -36,7 +36,7 @@ namespace RsMapper
 
                     DownloadProgress downloadProgress = new DownloadProgress("https://raw.githubusercontent.com/GreenJamesDev/RsMapper/master/RsMapper/Components.json", ComponentsJson);
                     downloadProgress.ShowDialog();
-
+                    downloadProgress.Dispose();
                 } else
                 {
 
