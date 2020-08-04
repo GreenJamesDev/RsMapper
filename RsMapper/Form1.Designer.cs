@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewGroup listViewGroup16 = new System.Windows.Forms.ListViewGroup("Input", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup17 = new System.Windows.Forms.ListViewGroup("Output", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup18 = new System.Windows.Forms.ListViewGroup("Inline", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup19 = new System.Windows.Forms.ListViewGroup("Logic", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup20 = new System.Windows.Forms.ListViewGroup("Misc", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem("Cross", 0);
-            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem("Dot", 1);
-            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem("Horizontal", 2);
-            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem("Vertical", 3);
-            System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem("Left Down", 4);
-            System.Windows.Forms.ListViewItem listViewItem18 = new System.Windows.Forms.ListViewItem("Right Down", 5);
-            System.Windows.Forms.ListViewItem listViewItem19 = new System.Windows.Forms.ListViewItem("Left Up", 6);
-            System.Windows.Forms.ListViewItem listViewItem20 = new System.Windows.Forms.ListViewItem("Right Up", 7);
-            System.Windows.Forms.ListViewItem listViewItem21 = new System.Windows.Forms.ListViewItem("T Down", 8);
-            System.Windows.Forms.ListViewItem listViewItem22 = new System.Windows.Forms.ListViewItem("T Left", 9);
-            System.Windows.Forms.ListViewItem listViewItem23 = new System.Windows.Forms.ListViewItem("T Right", 10);
-            System.Windows.Forms.ListViewItem listViewItem24 = new System.Windows.Forms.ListViewItem("T Up", 11);
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Input", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Output", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("Inline", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Logic", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("Misc", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Cross", 0);
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Dot", 1);
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("Horizontal", 2);
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("Vertical", 3);
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("Left Down", 4);
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("Right Down", 5);
+            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("Left Up", 6);
+            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("Right Up", 7);
+            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("T Down", 8);
+            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("T Left", 9);
+            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("T Right", 10);
+            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("T Up", 11);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripLabel = new System.Windows.Forms.ToolStripStatusLabel();
@@ -70,9 +70,12 @@
             this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.resetComponentsjsonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.backupComponentsjsonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.documentationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.feedbackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -85,9 +88,6 @@
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.panel1 = new RsMapper.Forms.Controls.DrawPanel();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.feedbackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.backupComponentsjsonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -250,14 +250,14 @@
             this.showGridlinesToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.showGridlinesToolStripMenuItem.Name = "showGridlinesToolStripMenuItem";
             this.showGridlinesToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this.showGridlinesToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.showGridlinesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.showGridlinesToolStripMenuItem.Text = "Show Gridlines";
             this.showGridlinesToolStripMenuItem.Click += new System.EventHandler(this.showGridlinesToolStripMenuItem_Click);
             // 
             // gridColorToolStripMenuItem
             // 
             this.gridColorToolStripMenuItem.Name = "gridColorToolStripMenuItem";
-            this.gridColorToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.gridColorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gridColorToolStripMenuItem.Text = "Grid Color...";
             this.gridColorToolStripMenuItem.Click += new System.EventHandler(this.gridColorToolStripMenuItem_Click);
             // 
@@ -275,21 +275,28 @@
             // checkForUpdatesToolStripMenuItem
             // 
             this.checkForUpdatesToolStripMenuItem.Name = "checkForUpdatesToolStripMenuItem";
-            this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
             this.checkForUpdatesToolStripMenuItem.Text = "Check for Updates...";
             this.checkForUpdatesToolStripMenuItem.Click += new System.EventHandler(this.checkForUpdatesToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(196, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(207, 6);
             // 
             // resetComponentsjsonToolStripMenuItem
             // 
             this.resetComponentsjsonToolStripMenuItem.Name = "resetComponentsjsonToolStripMenuItem";
-            this.resetComponentsjsonToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.resetComponentsjsonToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
             this.resetComponentsjsonToolStripMenuItem.Text = "Reset Components.json";
             this.resetComponentsjsonToolStripMenuItem.Click += new System.EventHandler(this.resetComponentsjsonToolStripMenuItem_Click);
+            // 
+            // backupComponentsjsonToolStripMenuItem
+            // 
+            this.backupComponentsjsonToolStripMenuItem.Name = "backupComponentsjsonToolStripMenuItem";
+            this.backupComponentsjsonToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.backupComponentsjsonToolStripMenuItem.Text = "Backup Components.json";
+            this.backupComponentsjsonToolStripMenuItem.Click += new System.EventHandler(this.backupComponentsjsonToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -316,6 +323,19 @@
             this.documentationToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.documentationToolStripMenuItem.Text = "Documentation";
             this.documentationToolStripMenuItem.Click += new System.EventHandler(this.documentationToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(173, 6);
+            // 
+            // feedbackToolStripMenuItem
+            // 
+            this.feedbackToolStripMenuItem.Name = "feedbackToolStripMenuItem";
+            this.feedbackToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F1)));
+            this.feedbackToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.feedbackToolStripMenuItem.Text = "Feedback";
+            this.feedbackToolStripMenuItem.Click += new System.EventHandler(this.feedbackToolStripMenuItem_Click);
             // 
             // splitContainer1
             // 
@@ -359,22 +379,22 @@
             // listView1
             // 
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            listViewGroup16.Header = "Input";
-            listViewGroup16.Name = "InputGroup";
-            listViewGroup17.Header = "Output";
-            listViewGroup17.Name = "OutputGroup";
-            listViewGroup18.Header = "Inline";
-            listViewGroup18.Name = "InlineGroup";
-            listViewGroup19.Header = "Logic";
-            listViewGroup19.Name = "LogicGroup";
-            listViewGroup20.Header = "Misc";
-            listViewGroup20.Name = "MiscGroup";
+            listViewGroup1.Header = "Input";
+            listViewGroup1.Name = "InputGroup";
+            listViewGroup2.Header = "Output";
+            listViewGroup2.Name = "OutputGroup";
+            listViewGroup3.Header = "Inline";
+            listViewGroup3.Name = "InlineGroup";
+            listViewGroup4.Header = "Logic";
+            listViewGroup4.Name = "LogicGroup";
+            listViewGroup5.Header = "Misc";
+            listViewGroup5.Name = "MiscGroup";
             this.listView1.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup16,
-            listViewGroup17,
-            listViewGroup18,
-            listViewGroup19,
-            listViewGroup20});
+            listViewGroup1,
+            listViewGroup2,
+            listViewGroup3,
+            listViewGroup4,
+            listViewGroup5});
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(3, 3);
             this.listView1.MultiSelect = false;
@@ -401,18 +421,18 @@
             this.wireListView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.wireListView.HideSelection = false;
             this.wireListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem13,
-            listViewItem14,
-            listViewItem15,
-            listViewItem16,
-            listViewItem17,
-            listViewItem18,
-            listViewItem19,
-            listViewItem20,
-            listViewItem21,
-            listViewItem22,
-            listViewItem23,
-            listViewItem24});
+            listViewItem1,
+            listViewItem2,
+            listViewItem3,
+            listViewItem4,
+            listViewItem5,
+            listViewItem6,
+            listViewItem7,
+            listViewItem8,
+            listViewItem9,
+            listViewItem10,
+            listViewItem11,
+            listViewItem12});
             this.wireListView.LargeImageList = this.wireImageList;
             this.wireListView.Location = new System.Drawing.Point(3, 3);
             this.wireListView.Name = "wireListView";
@@ -468,6 +488,7 @@
             // 
             // panel1
             // 
+            this.panel1.Blocks = null;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.GridColor = System.Drawing.Color.Black;
             this.panel1.Location = new System.Drawing.Point(3, 3);
@@ -479,26 +500,6 @@
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
-            // 
-            // feedbackToolStripMenuItem
-            // 
-            this.feedbackToolStripMenuItem.Name = "feedbackToolStripMenuItem";
-            this.feedbackToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F1)));
-            this.feedbackToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.feedbackToolStripMenuItem.Text = "Feedback";
-            this.feedbackToolStripMenuItem.Click += new System.EventHandler(this.feedbackToolStripMenuItem_Click);
-            // 
-            // backupComponentsjsonToolStripMenuItem
-            // 
-            this.backupComponentsjsonToolStripMenuItem.Name = "backupComponentsjsonToolStripMenuItem";
-            this.backupComponentsjsonToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
-            this.backupComponentsjsonToolStripMenuItem.Text = "Backup Components.json";
-            this.backupComponentsjsonToolStripMenuItem.Click += new System.EventHandler(this.backupComponentsjsonToolStripMenuItem_Click);
             // 
             // Form1
             // 

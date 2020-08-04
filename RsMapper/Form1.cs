@@ -45,21 +45,24 @@ namespace RsMapper
 
         public Form1()
         {
-            InitializeComponent();
+            InitializeComponent();  
             this.DoubleBuffered = true;
         }
         
         // Read components json and retrieve redstone components.
         public void GetComps()
         {
-            using (StreamReader r = new StreamReader(PrgmSelfCheck.ComponentsJson))
+            if (Program.NoJson == false && File.Exists(PrgmSelfCheck.ComponentsJson))
             {
-                string json = r.ReadToEnd();
-                Console.Write(json);
-                
-                compList = JsonConvert.DeserializeObject<RootObject>(json);
-                FillList();
-                
+                using (StreamReader r = new StreamReader(PrgmSelfCheck.ComponentsJson))
+                {
+                    string json = r.ReadToEnd();
+                    Console.Write(json);
+
+                    compList = JsonConvert.DeserializeObject<RootObject>(json);
+                    FillList();
+
+                }
             }
         }
 
@@ -122,6 +125,7 @@ namespace RsMapper
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
+             
             panel1.Focus();
             Graphics g = panel1.CreateGraphics();                    // Create graphics.             
             g.InterpolationMode = InterpolationMode.NearestNeighbor; // Maintain pixelated quality while zooming.
@@ -218,7 +222,7 @@ namespace RsMapper
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Save();
+            Save(false);
             
         }
 
@@ -243,8 +247,9 @@ namespace RsMapper
          /// Handles saving.
          /// If the file has not yet been saved, show the save file dialog.
          /// If there is alreasy a path set to a file, save to that file without a dialog.
+         /// <paramref name="ExitOnSave">Should the program close on exxit?<paramref/>
          /// </summary>
-        public void Save()
+        public void Save(bool ExitOnSave)
         {
             if(path == null)
             {
@@ -272,8 +277,22 @@ namespace RsMapper
                     Form1.ActiveForm.Text = "RsMapper - " + path;
                     unsavedChanges = false;
 
+                    if(ExitOnSave == true)
+                    {
+                        Environment.Exit(0);
+                    }
+
                     sfd.Dispose();
-                } 
+                }
+                else
+                {
+                    // If the cancel button is pressed,
+                    // Stop form from closing.
+                    if(ExitOnSave == true)
+                    {
+                        CancelFormExit = true;
+                    }
+                }
 
             } else
             {
@@ -303,6 +322,7 @@ namespace RsMapper
         public bool CancelFormExit = false;
         public void UnsavedChangesExit()
         {
+            
             CancelFormExit = false;
             UnsavedDialog unsavedDialog = new UnsavedDialog();
             
@@ -318,16 +338,14 @@ namespace RsMapper
                     // Save work before closing.
                     case DialogResult.OK:
                         CancelFormExit = false;
-                        Save();
-                        this.Close();
-                        Application.Exit();                      
+                        Save(true);
+                                              
                         break;
                     
                     // Close without saving.
                     case DialogResult.No:
                         CancelFormExit = false;
                         
-                         
                         break;
                     
                     // Keep the application open.
@@ -414,7 +432,7 @@ namespace RsMapper
                     graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
                     graphics.PixelOffsetMode = PixelOffsetMode.None;
 
-                    
+
                     // Get nearest multiple of 50 and set this to the X and Y coordinates.
                     p.X = NearestMultiple(panel1.PointToClient(MousePosition).X, 50);
                     p.Y = NearestMultiple(panel1.PointToClient(MousePosition).Y, 50);
@@ -443,7 +461,7 @@ namespace RsMapper
                     // Block setup.
                     picb.Parent = panel1;
                     picb.Location = p;
-                    
+                          
                     picb.Image = src;
                     picb.Size = rect.Size;
                     picb.ComponentName = listvi.Text;
@@ -452,6 +470,7 @@ namespace RsMapper
 
                     // Add component to the list.
                     PictureBoxes.Add(picb);
+                    panel1.Controls.Add(picb);
 
                     undoToolStripMenuItem.Enabled = true;
 
@@ -507,6 +526,7 @@ namespace RsMapper
 
                     // Add component to the list.
                     PictureBoxes.Add(picb);
+                    panel1.Controls.Add(picb);
 
                     undoToolStripMenuItem.Enabled = true;
 
@@ -722,6 +742,11 @@ namespace RsMapper
 
                 File.Copy(AppDomain.CurrentDomain.BaseDirectory + PrgmSelfCheck.ComponentsJson, saveFileDialog.FileName);
             }
+        }
+
+        private void darkModeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

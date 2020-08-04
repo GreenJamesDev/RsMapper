@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Runtime.CompilerServices;
 
 namespace RsMapper.Forms.Controls
 {
@@ -20,8 +21,15 @@ namespace RsMapper.Forms.Controls
         /// </summary>
         public Color GridColor { get; set; }
 
+        /// <summary>
+        /// A list of all blocks on the control.
+        /// </summary>
+        public ControlCollection Blocks { get; set; }
+
         public DrawPanel()
         {
+           
+            
             // Enable double buffering.
             this.DoubleBuffered = true;
 
@@ -37,12 +45,18 @@ namespace RsMapper.Forms.Controls
             this.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
             this.UpdateStyles();
+
+            foreach(Control c in this.Controls)
+            {
+                Blocks.Add(c);
+            }
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
             // Call the OnPaint method of the base class.
             base.OnPaint(e);
+             
 
             if (ShowGrid == true)
             {
@@ -50,17 +64,24 @@ namespace RsMapper.Forms.Controls
                 Graphics g = e.Graphics;
                 Pen pen = new Pen(GridColor);
 
-
-                for (int y = 0; y < 50; ++y)
+                for (int y = 0; y < 100; ++y)
                 {
                     g.DrawLine(pen, 0, y * 50, 100 * 50, y * 50);
                 }
 
-                for (int x = 0; x < 50; ++x)
+                for (int x = 0; x < 100; ++x)
                 {
                     g.DrawLine(pen, x * 50, 0, x * 50, 100 * 50);
                 }
             }
+
+            
+        }
+
+        protected override void OnMouseDown(MouseEventArgs e)
+        {
+            base.OnMouseDown(e);
+            
         }
     }
 }

@@ -52,7 +52,7 @@ namespace RsMapper.Forms
                     if (MessageBox.Show("An update for RsMapper is available! Would you like to download it?", "Update Found", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
                         Process.Start(latest.HtmlUrl);
-                        System.Windows.Forms.Application.Exit();
+                        
                     }
                     // Isn't a new update.
                     else

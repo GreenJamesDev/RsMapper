@@ -43,6 +43,7 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Checking for updates...";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.UseWaitCursor = true;
             // 
             // UpdateCheck
             // 
@@ -54,8 +55,10 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "UpdateCheck";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Update Check";
+            this.UseWaitCursor = true;
             this.Load += new System.EventHandler(this.UpdateCheck_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -13,7 +13,7 @@ namespace RsMapper
     public class PrgmSelfCheck
     {
         // DEPENDANCIES
-        public static string ComponentsJson = "Components.json";
+        public static string ComponentsJson = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),"RsMapper\\Components.json");
         public static string JsonNet =        "Newtonsoft.Json.dll";
         public static string JsonNetXml =     "Newtonsoft.Json.xml";
         
@@ -33,7 +33,7 @@ namespace RsMapper
                 // Check for components settings file.
                 if(MessageBox.Show("The file " + ComponentsJson + " is missing. Would you like to redownload it?", "Missing Dependancy", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
                 {
-
+                    
                     DownloadProgress downloadProgress = new DownloadProgress("https://raw.githubusercontent.com/GreenJamesDev/RsMapper/master/RsMapper/Components.json", ComponentsJson);
                     downloadProgress.ShowDialog();
                     downloadProgress.Dispose();
@@ -41,7 +41,8 @@ namespace RsMapper
                 {
 
                     // If the user chooses not to reinstall the file, exit RsMapper.
-                    Application.Exit();
+                    Console.WriteLine("RsMapper cannot run without \'Components.json\'.");
+                    Environment.Exit(1);
                 }
 
             }
