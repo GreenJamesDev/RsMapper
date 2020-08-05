@@ -744,9 +744,39 @@ namespace RsMapper
             }
         }
 
-        private void darkModeToolStripMenuItem_Click(object sender, EventArgs e)
+        
+
+        private void fullscreenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            // Check if the menu item is selected or not.
+            if (fullscreenToolStripMenuItem.Checked == true)
+            {
+                fullscreenToolStripMenuItem.Checked = false;
+            }
+            else
+            {
+
+                fullscreenToolStripMenuItem.Checked = true;
+            }
+
+            // Set the 
+            GoFullscreen(fullscreenToolStripMenuItem.Checked);
+        }
+
+        private void GoFullscreen(bool fullscreen)
+        {
+            if (fullscreen)
+            {
+                this.WindowState = FormWindowState.Normal;
+                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+                this.Bounds = Screen.PrimaryScreen.Bounds;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Maximized;
+                
+                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
+            }
         }
     }
 }
