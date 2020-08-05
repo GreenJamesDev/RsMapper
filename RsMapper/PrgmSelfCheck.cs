@@ -29,21 +29,11 @@ namespace RsMapper
             
             if (File.Exists(ComponentsJson) == false)
             {
-
-                // Check for components settings file.
-                if(MessageBox.Show("The file " + ComponentsJson + " is missing. Would you like to redownload it?", "Missing Dependancy", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
-                {
-                    
-                    DownloadProgress downloadProgress = new DownloadProgress("https://raw.githubusercontent.com/GreenJamesDev/RsMapper/master/RsMapper/Components.json", ComponentsJson);
-                    downloadProgress.ShowDialog();
-                    downloadProgress.Dispose();
-                } else
-                {
-
-                    // If the user chooses not to reinstall the file, exit RsMapper.
-                    Console.WriteLine("RsMapper cannot run without \'Components.json\'.");
-                    Environment.Exit(1);
-                }
+                Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "RsMapper"));
+                DownloadProgress downloadProgress = new DownloadProgress("https://raw.githubusercontent.com/GreenJamesDev/RsMapper/master/RsMapper/Components.json", ComponentsJson);
+                downloadProgress.ShowDialog();
+                downloadProgress.Dispose();
+                
 
             }
 

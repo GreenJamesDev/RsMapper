@@ -36,7 +36,7 @@ namespace RsMapper.Forms
             }
             catch (Exception exception)
             {
-                MessageBox.Show("Unable to download replacement file.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Unable to download file.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Application.Exit();
             }
         }
