@@ -538,15 +538,6 @@ namespace RsMapper
                     }
                 }
 
-            } else if(e.Button == MouseButtons.Middle)
-            {
-                if (CursorControlLocate.FindControlAtCursor(panel1) is PictureBox)
-                {
-
-                    // TBA
-
-
-                }
             }
         }
 

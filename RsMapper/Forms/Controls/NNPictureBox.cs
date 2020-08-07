@@ -44,5 +44,14 @@ namespace RsMapper.Forms.Controls
             tt.SetToolTip(this, ComponentName + "\n" + ComponentTag);
             
         }
+
+        protected override void OnMouseDown(MouseEventArgs e)
+        {
+            base.OnMouseDown(e);
+            if(e.Button == MouseButtons.Middle)
+            {
+                Dispose();
+            }
+        }
     }
 }
