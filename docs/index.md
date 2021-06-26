@@ -1,37 +1,25 @@
-## Welcome to GitHub Pages
+## About
 
-You can use the [editor on GitHub](https://github.com/GreenJamesDev/RsMapper/edit/master/docs/index.md) to maintain and preview the content for your website in Markdown files.
+RsMapper is an open-source application for drawing and visualizing redstone circuitry. RsMapper has the ability to detect and use custom components, meaning that modded blocks can be represented.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+***Note:*** *The current version number of RsMapper is below 1.0.0.0, meaning that is still in pre-release phase. There may be some bugs or missing features.*
 
-### Markdown
+## Features
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+- Custom Component Support
+- Built-in Update Checker
+- Automatically detects and fixes missing component files.
 
-```markdown
-Syntax highlighted code block
+### Future features / In progress
 
-# Header 1
-## Header 2
-### Header 3
+- Built-in custom component creator. (Modpacks)
+- .rsch Redstone Schematic Files
+- Direct Minecraft Integration (Far Future)
+- Signal Simulation (Far Future)
 
-- Bulleted
-- List
+## Project Links
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/GreenJamesDev/RsMapper/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+- GitHub Repository: https://github.com/GreenJamesDev/RsMapper
+- Documentation: https://github.com/GreenJamesDev/RsMapper/wiki
+- Discussion: https://github.com/GreenJamesDev/RsMapper/discussions
+- Issues: https://github.com/GreenJamesDev/RsMapper/issues
