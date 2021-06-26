@@ -5,7 +5,7 @@
 
 An open-source redstone circuit planning and designing tool.
 
-![](https://user-images.githubusercontent.com/39837353/84084412-0e238f00-a9a9-11ea-94ac-8c0b68fc69f8.PNG)
+![](https://i.imgur.com/rNrQvSC.png)
 
 ## Features
 _All features listed below are in the beta 0.1.0.0 release._
