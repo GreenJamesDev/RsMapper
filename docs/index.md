@@ -4,6 +4,8 @@ RsMapper is an open-source application for drawing and visualizing redstone circ
 
 ***Note:*** *The current version number of RsMapper is below 1.0.0.0, meaning that is still in pre-release phase. There may be some bugs or missing features.*
 
+![](https://user-images.githubusercontent.com/39837353/84084412-0e238f00-a9a9-11ea-94ac-8c0b68fc69f8.PNG)
+
 ## Features
 
 - Custom Component Support
