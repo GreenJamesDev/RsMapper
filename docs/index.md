@@ -2,7 +2,7 @@
 
 RsMapper is an open-source application for drawing and visualizing redstone circuitry. RsMapper has the ability to detect and use custom components, meaning that modded blocks can be represented.
 
-***Note:*** *The current version number of RsMapper is below 1.0.0.0, meaning that is still in pre-release phase. There may be some bugs or missing features.*
+***Note:*** *The current version number of RsMapper is below 1.0.0.0, meaning that it's still in pre-release phase. There may be some bugs or missing features.*
 
 ![](https://i.imgur.com/rNrQvSC.png)
 
