@@ -45,6 +45,8 @@
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -82,11 +84,23 @@
     <Compile Include="Forms\Controls\NNPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Forms\CreateCustomMod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CreateCustomMod.Designer.cs">
+      <DependentUpon>CreateCustomMod.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\DownloadProgress.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\DownloadProgress.Designer.cs">
       <DependentUpon>DownloadProgress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Modpacks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Modpacks.Designer.cs">
+      <DependentUpon>Modpacks.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\UnsavedDialog.cs">
       <SubType>Form</SubType>
@@ -118,8 +132,14 @@
     <EmbeddedResource Include="Forms\CommandEnter.resx">
       <DependentUpon>CommandEnter.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CreateCustomMod.resx">
+      <DependentUpon>CreateCustomMod.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\DownloadProgress.resx">
       <DependentUpon>DownloadProgress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Modpacks.resx">
+      <DependentUpon>Modpacks.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UnsavedDialog.resx">
       <DependentUpon>UnsavedDialog.cs</DependentUpon>
@@ -203,6 +223,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon_0uP_icon.ico" />
+    <Content Include="Imgs\lightning_rod.png" />
     <Content Include="Imgs\Wires\RS_TDown.png" />
     <Content Include="Imgs\Wires\RS_TLeft.png" />
     <Content Include="Imgs\Wires\RS_TRight.png" />

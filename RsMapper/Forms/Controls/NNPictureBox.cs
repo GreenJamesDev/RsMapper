@@ -21,6 +21,19 @@ namespace RsMapper.Forms.Controls
         /// </summary>
         public string ComponentTag { get; set; }
 
+        /// <summary>
+        /// List to add the component to after deletion
+        /// for undoing.
+        /// </summary>
+        public List<PictureBox> RedoList;
+
+        /// <summary>
+        /// Determines whether or not the user can interact with the control.
+        /// </summary>
+        public bool IsInteractable;
+
+        public ToolStripMenuItem redoMItem;
+
         public NNPictureBox()
         {
 
@@ -39,19 +52,35 @@ namespace RsMapper.Forms.Controls
         protected override void OnMouseHover(EventArgs e)
         {
             base.OnMouseHover(e);
-            ToolTip tt = new ToolTip();
-            
-            tt.SetToolTip(this, ComponentName + "\n" + ComponentTag);
-            
+            if (IsInteractable == true)
+            {
+                ToolTip tt = new ToolTip();
+
+                tt.SetToolTip(this, ComponentName + "\n" + ComponentTag);
+            }
         }
 
         protected override void OnMouseDown(MouseEventArgs e)
         {
+            // Delete component.
             base.OnMouseDown(e);
-            if(e.Button == MouseButtons.Middle)
+            if (IsInteractable == true)
             {
-                Dispose();
+                if (e.Button == MouseButtons.Middle)
+                {
+                    DeleteComponent();
+                }
             }
+        }
+
+        /// <summary>
+        /// Delete the component and add it to the redo list.
+        /// </summary>
+        void DeleteComponent()
+        {
+            Visible = false;
+            RedoList.Add(this);
+            redoMItem.Enabled = true;
         }
     }
 }

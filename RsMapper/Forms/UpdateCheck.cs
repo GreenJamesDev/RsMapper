@@ -21,8 +21,9 @@ namespace RsMapper.Forms
 
         public UpdateCheck()
         {
+            
             InitializeComponent();
-
+            
         }
 
         private void UpdateCheck_Load(object sender, EventArgs e)
@@ -48,30 +49,34 @@ namespace RsMapper.Forms
                 // Compare versions.
                 if (latest.TagName != abt.AssemblyVersion)
                 {
-                    // Is a new update.
-                    if (MessageBox.Show("An update for RsMapper is available! Would you like to download it?", "Update Found", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    // Display a notification if there is an update.
+                    var notification = new NotifyIcon()
                     {
-                        Process.Start(latest.HtmlUrl);
-                        
-                    }
-                    // Isn't a new update.
-                    else
-                    {
-                        this.Dispose();
-                    }
+                        Visible = true,
+                        Icon = Resources.icon_0uP_icon,
+                        BalloonTipTitle = "RsMapper Update",
+                        BalloonTipText = "Version " + latest.TagName + " is available.",
+                    };
+
+                    notification.BalloonTipClosed += (sender, args) => notification.Dispose();
+                    notification.BalloonTipClicked += (sender, args) => Process.Start(latest.HtmlUrl);
+
+                    // Display for 5 seconds.
+                    notification.ShowBalloonTip(3000);
                 }
+                // Isn't a new update.
                 else
                 {
                     this.Dispose();
                 }
 
-
             } catch (Exception e)
             {
                 this.Dispose();
             }
-            this.Dispose();
+            
             
         }
+
     }
 }

@@ -16,7 +16,7 @@ namespace RsMapper
         public static string ComponentsJson = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),"RsMapper\\Components.json");
         public static string JsonNet =        "Newtonsoft.Json.dll";
         public static string JsonNetXml =     "Newtonsoft.Json.xml";
-        
+        public static string Modpacks = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\RsMapper\\Modpacks";
 
         WebClient wc = new WebClient();
 
@@ -26,7 +26,7 @@ namespace RsMapper
         public async void CheckAll()
         {
             
-            
+            // Components.json
             if (File.Exists(ComponentsJson) == false)
             {
                 Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "RsMapper"));
@@ -37,6 +37,11 @@ namespace RsMapper
 
             }
 
+            // Modpacks folder.
+            if (Directory.Exists(Modpacks) == false)
+            {
+                Directory.CreateDirectory(Modpacks);
+            }
         }
         
 
