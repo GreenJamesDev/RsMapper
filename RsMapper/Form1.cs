@@ -37,7 +37,9 @@ namespace RsMapper
         RsComponent CurSelectedComp;
         Point p;
         string path;
-
+        string sfdFilter;
+        string sfdDefaultExt;
+        string AppData;
         bool unsavedChanges;
 
 
@@ -47,6 +49,7 @@ namespace RsMapper
         {
             InitializeComponent();  
             this.DoubleBuffered = true;
+            AppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\RsMapper";
         }
         
         // Read components json and retrieve redstone components.
@@ -60,27 +63,49 @@ namespace RsMapper
                     Console.Write(json);
 
                     compList = JsonConvert.DeserializeObject<RootObject>(json);
-                    FillList();
+                    
 
                 }
+
+                // Load modpacks.
+                foreach(string mod in Directory.GetDirectories(AppData + "\\Modpacks"))
+                {
+                    Console.WriteLine(mod);
+                    using (StreamReader r = new StreamReader(mod + "\\Components.json"))
+                    {
+                        string jsonx = r.ReadToEnd();
+                        Console.Write(jsonx);
+
+                        foreach (RsComponent rsc in JsonConvert.DeserializeObject<RootObject>(jsonx).RsComponents)
+                        {
+                            Console.WriteLine(rsc.name);
+                            compList.RsComponents.Add(rsc);
+                        }
+
+                    }
+                }
+                FillList();
             }
         }
-
+        
         // Fill the component list with components from the json file,
         // and asign their properties.
         void FillList()
+
         {
+            
             imgl = new ImageList();
             indx = 0;
             foreach (RsComponent rsc in compList.RsComponents)
             {
+                
                 // Setup the image list and add component images.
-                Image image =  Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + rsc.image);
+                Image image =  Image.FromFile(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\RsMapper" + rsc.image);
                 imgl.Images.Add(image);
                 listView1.LargeImageList = imgl;
 
                 ListViewItem lvi = listView1.Items.Add(rsc.name); // Add the item.
-                lvi.Group = listView1.Groups[rsc.type + "Group"]; // Asign it to a group.
+                lvi.Group = listView1.Groups[rsc.type + "Group"]; // Assign it to a group.
                 lvi.ToolTipText = rsc.name + "\n" + rsc.info;     // Set the tooltip.
                 lvi.ImageIndex = indx;                            // Asign the component its image;
                 indx++;                                           // Increment the image index.
@@ -97,6 +122,8 @@ namespace RsMapper
             PictureBoxes = new List<PictureBox>();
             RedoList = new List<PictureBox>();
 
+            sfdFilter = "PNG Images |*.png|Bitmap Images |*.bmp";
+            sfdDefaultExt = "png";
 
             p = new Point();
         }
@@ -125,7 +152,7 @@ namespace RsMapper
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
-             
+
             panel1.Focus();
             Graphics g = panel1.CreateGraphics();                    // Create graphics.             
             g.InterpolationMode = InterpolationMode.NearestNeighbor; // Maintain pixelated quality while zooming.
@@ -196,8 +223,8 @@ namespace RsMapper
             // Create and configure a save file dialog.
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.AddExtension = true;
-            sfd.Filter = "PNG Images |*.png|Bitmap Images |*.bmp";
-            sfd.DefaultExt = "png";
+            sfd.Filter = sfdFilter;
+            sfd.DefaultExt = sfdDefaultExt;
 
             // Show the dialog a save the image.
             if (sfd.ShowDialog() == DialogResult.OK)
@@ -257,8 +284,8 @@ namespace RsMapper
                 // Create and configure a save file dialog.
                 SaveFileDialog sfd = new SaveFileDialog();
                 sfd.AddExtension = true;
-                sfd.Filter = "PNG Images |*.png|Bitmap Images |*.bmp";
-                sfd.DefaultExt = "png";
+                sfd.Filter = sfdFilter;
+                sfd.DefaultExt = sfdDefaultExt;
 
                 // Show the dialog a save the image.
                 if (sfd.ShowDialog() == DialogResult.OK)
@@ -418,7 +445,7 @@ namespace RsMapper
                 if (listView1.SelectedItems.Count > 0)
                 {
                     picb = new NNPictureBox();
-
+                    picb.IsInteractable = true;
 
                     // Get the selected item.
                     ListViewItem listvi = listView1.SelectedItems[0];
@@ -467,6 +494,8 @@ namespace RsMapper
                     picb.ComponentName = listvi.Text;
                     picb.SizeMode = PictureBoxSizeMode.StretchImage;
                     picb.Visible = true;
+                    picb.RedoList = RedoList;
+                    picb.redoMItem = redoToolStripMenuItem;
 
                     // Add component to the list.
                     PictureBoxes.Add(picb);
@@ -487,6 +516,7 @@ namespace RsMapper
             {
 
                 picb = new NNPictureBox();
+                picb.IsInteractable = true;
 
                 if (wireListView.SelectedItems.Count > 0)
                 {
@@ -496,7 +526,7 @@ namespace RsMapper
 
                     Rectangle rect = new Rectangle();
 
-                    Bitmap src = (Bitmap)compImg;
+                    Image src = Rotate(compImg);
 
                     Graphics graphics = Graphics.FromImage(src);
                     graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
@@ -523,6 +553,8 @@ namespace RsMapper
                     picb.Size = rect.Size;
                     picb.SizeMode = PictureBoxSizeMode.StretchImage;
                     picb.Visible = true;
+                    picb.RedoList = RedoList;
+                    picb.redoMItem = redoToolStripMenuItem;
 
                     // Add component to the list.
                     PictureBoxes.Add(picb);
@@ -635,6 +667,8 @@ namespace RsMapper
             UpdateCheck uc = new UpdateCheck();
             uc.ShowDialog();
             uc.Dispose();
+
+
         }
 
 
@@ -666,6 +700,7 @@ namespace RsMapper
             e.Graphics.DrawImage(bm, loc);
 
             bm.Dispose();
+             
             
         }
 
@@ -712,6 +747,8 @@ namespace RsMapper
             panel1.GridColor = cd.Color;
             cd.Dispose();
             panel1.Refresh();
+
+            
         }
 
         // Takes the user to Github issues.
@@ -723,14 +760,17 @@ namespace RsMapper
         // Backup components.json.
         private void backupComponentsjsonToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // Setup the backup dialog.
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Title = "Backup To";
             saveFileDialog.Filter = "JSON files|*.json";
             saveFileDialog.DefaultExt = "json";
             saveFileDialog.AddExtension = true;
+
+            // Show the dialog.
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-
+                // Copy the components file to the seleted path.
                 File.Copy(AppDomain.CurrentDomain.BaseDirectory + PrgmSelfCheck.ComponentsJson, saveFileDialog.FileName);
             }
         }
@@ -750,7 +790,7 @@ namespace RsMapper
                 fullscreenToolStripMenuItem.Checked = true;
             }
 
-            // Set the 
+            // Set the window to fullscreen or otherwise.
             GoFullscreen(fullscreenToolStripMenuItem.Checked);
         }
 
@@ -758,16 +798,29 @@ namespace RsMapper
         {
             if (fullscreen)
             {
+                // If the windows is already in fullscreen mode, minimize.
                 this.WindowState = FormWindowState.Normal;
                 this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
                 this.Bounds = Screen.PrimaryScreen.Bounds;
             }
             else
             {
+                // Otherwise, set to fullscreen mode.
                 this.WindowState = FormWindowState.Maximized;
-                
                 this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
             }
+        }
+
+        private void createModToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateCustomMod ccm = new CreateCustomMod();
+            ccm.ShowDialog();
+        }
+
+        private void modpacksToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Modpacks modpacks = new Modpacks();
+            modpacks.ShowDialog();
         }
     }
 }

@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("Input", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup7 = new System.Windows.Forms.ListViewGroup("Output", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup8 = new System.Windows.Forms.ListViewGroup("Inline", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup9 = new System.Windows.Forms.ListViewGroup("Logic", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup10 = new System.Windows.Forms.ListViewGroup("Misc", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem("Cross", 0);
-            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem("Dot", 1);
-            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem("Horizontal", 2);
-            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem("Vertical", 3);
-            System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem("Left Down", 4);
-            System.Windows.Forms.ListViewItem listViewItem18 = new System.Windows.Forms.ListViewItem("Right Down", 5);
-            System.Windows.Forms.ListViewItem listViewItem19 = new System.Windows.Forms.ListViewItem("Left Up", 6);
-            System.Windows.Forms.ListViewItem listViewItem20 = new System.Windows.Forms.ListViewItem("Right Up", 7);
-            System.Windows.Forms.ListViewItem listViewItem21 = new System.Windows.Forms.ListViewItem("T Down", 8);
-            System.Windows.Forms.ListViewItem listViewItem22 = new System.Windows.Forms.ListViewItem("T Left", 9);
-            System.Windows.Forms.ListViewItem listViewItem23 = new System.Windows.Forms.ListViewItem("T Right", 10);
-            System.Windows.Forms.ListViewItem listViewItem24 = new System.Windows.Forms.ListViewItem("T Up", 11);
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Input", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Output", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("Inline", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Logic", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("Misc", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Cross", 0);
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Dot", 1);
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("Horizontal Line", 2);
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("Verticle Line", 3);
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("Left-Down", 4);
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("Left-Up", 6);
+            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("Right-Down", 5);
+            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("Right-Up", 7);
+            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("T Down", 8);
+            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("T Up", 11);
+            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("T Left", 9);
+            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("T Right", 10);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripLabel = new System.Windows.Forms.ToolStripStatusLabel();
@@ -73,6 +73,8 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.resetComponentsjsonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backupComponentsjsonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.createModToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.documentationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -87,9 +89,11 @@
             this.wireImageList = new System.Windows.Forms.ImageList(this.components);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.panel1 = new RsMapper.Forms.Controls.DrawPanel();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.modpacksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1 = new RsMapper.Forms.Controls.DrawPanel();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -101,6 +105,7 @@
             this.tabPage3.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -108,9 +113,9 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripLabel,
             this.rotationStatusLabel});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 708);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 707);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1252, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1235, 22);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -137,7 +142,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1252, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1235, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -284,7 +289,10 @@
             this.checkForUpdatesToolStripMenuItem,
             this.toolStripSeparator4,
             this.resetComponentsjsonToolStripMenuItem,
-            this.backupComponentsjsonToolStripMenuItem});
+            this.backupComponentsjsonToolStripMenuItem,
+            this.toolStripSeparator7,
+            this.createModToolStripMenuItem,
+            this.modpacksToolStripMenuItem});
             this.rsMapperToolStripMenuItem.Name = "rsMapperToolStripMenuItem";
             this.rsMapperToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
             this.rsMapperToolStripMenuItem.Text = "RsMapper";
@@ -292,28 +300,40 @@
             // checkForUpdatesToolStripMenuItem
             // 
             this.checkForUpdatesToolStripMenuItem.Name = "checkForUpdatesToolStripMenuItem";
-            this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
             this.checkForUpdatesToolStripMenuItem.Text = "Check for Updates...";
             this.checkForUpdatesToolStripMenuItem.Click += new System.EventHandler(this.checkForUpdatesToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(207, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(203, 6);
             // 
             // resetComponentsjsonToolStripMenuItem
             // 
             this.resetComponentsjsonToolStripMenuItem.Name = "resetComponentsjsonToolStripMenuItem";
-            this.resetComponentsjsonToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
-            this.resetComponentsjsonToolStripMenuItem.Text = "Reset Components.json";
+            this.resetComponentsjsonToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.resetComponentsjsonToolStripMenuItem.Text = "Reset Components List";
             this.resetComponentsjsonToolStripMenuItem.Click += new System.EventHandler(this.resetComponentsjsonToolStripMenuItem_Click);
             // 
             // backupComponentsjsonToolStripMenuItem
             // 
             this.backupComponentsjsonToolStripMenuItem.Name = "backupComponentsjsonToolStripMenuItem";
-            this.backupComponentsjsonToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
-            this.backupComponentsjsonToolStripMenuItem.Text = "Backup Components.json";
+            this.backupComponentsjsonToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.backupComponentsjsonToolStripMenuItem.Text = "Backup Components List";
             this.backupComponentsjsonToolStripMenuItem.Click += new System.EventHandler(this.backupComponentsjsonToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(203, 6);
+            // 
+            // createModToolStripMenuItem
+            // 
+            this.createModToolStripMenuItem.Name = "createModToolStripMenuItem";
+            this.createModToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.createModToolStripMenuItem.Text = "Create Mod...";
+            this.createModToolStripMenuItem.Click += new System.EventHandler(this.createModToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -367,8 +387,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
-            this.splitContainer1.Size = new System.Drawing.Size(1252, 684);
-            this.splitContainer1.SplitterDistance = 320;
+            this.splitContainer1.Size = new System.Drawing.Size(1235, 683);
+            this.splitContainer1.SplitterDistance = 315;
             this.splitContainer1.TabIndex = 2;
             // 
             // tabControl2
@@ -379,7 +399,7 @@
             this.tabControl2.Location = new System.Drawing.Point(0, 0);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(320, 684);
+            this.tabControl2.Size = new System.Drawing.Size(315, 683);
             this.tabControl2.TabIndex = 1;
             // 
             // tabPage2
@@ -388,36 +408,37 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(312, 658);
+            this.tabPage2.Size = new System.Drawing.Size(307, 657);
             this.tabPage2.TabIndex = 0;
             this.tabPage2.Text = "Components";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // listView1
             // 
+            this.listView1.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            listViewGroup6.Header = "Input";
-            listViewGroup6.Name = "InputGroup";
-            listViewGroup7.Header = "Output";
-            listViewGroup7.Name = "OutputGroup";
-            listViewGroup8.Header = "Inline";
-            listViewGroup8.Name = "InlineGroup";
-            listViewGroup9.Header = "Logic";
-            listViewGroup9.Name = "LogicGroup";
-            listViewGroup10.Header = "Misc";
-            listViewGroup10.Name = "MiscGroup";
+            listViewGroup1.Header = "Input";
+            listViewGroup1.Name = "InputGroup";
+            listViewGroup2.Header = "Output";
+            listViewGroup2.Name = "OutputGroup";
+            listViewGroup3.Header = "Inline";
+            listViewGroup3.Name = "InlineGroup";
+            listViewGroup4.Header = "Logic";
+            listViewGroup4.Name = "LogicGroup";
+            listViewGroup5.Header = "Misc";
+            listViewGroup5.Name = "MiscGroup";
             this.listView1.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup6,
-            listViewGroup7,
-            listViewGroup8,
-            listViewGroup9,
-            listViewGroup10});
+            listViewGroup1,
+            listViewGroup2,
+            listViewGroup3,
+            listViewGroup4,
+            listViewGroup5});
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(3, 3);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
             this.listView1.ShowItemToolTips = true;
-            this.listView1.Size = new System.Drawing.Size(306, 652);
+            this.listView1.Size = new System.Drawing.Size(301, 651);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.listView1_ItemDrag);
@@ -428,7 +449,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(312, 658);
+            this.tabPage3.Size = new System.Drawing.Size(307, 657);
             this.tabPage3.TabIndex = 1;
             this.tabPage3.Text = "Wires";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -438,22 +459,22 @@
             this.wireListView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.wireListView.HideSelection = false;
             this.wireListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem13,
-            listViewItem14,
-            listViewItem15,
-            listViewItem16,
-            listViewItem17,
-            listViewItem18,
-            listViewItem19,
-            listViewItem20,
-            listViewItem21,
-            listViewItem22,
-            listViewItem23,
-            listViewItem24});
+            listViewItem1,
+            listViewItem2,
+            listViewItem3,
+            listViewItem4,
+            listViewItem5,
+            listViewItem6,
+            listViewItem7,
+            listViewItem8,
+            listViewItem9,
+            listViewItem10,
+            listViewItem11,
+            listViewItem12});
             this.wireListView.LargeImageList = this.wireImageList;
             this.wireListView.Location = new System.Drawing.Point(3, 3);
             this.wireListView.Name = "wireListView";
-            this.wireListView.Size = new System.Drawing.Size(306, 652);
+            this.wireListView.Size = new System.Drawing.Size(301, 651);
             this.wireListView.TabIndex = 1;
             this.wireListView.UseCompatibleStateImageBehavior = false;
             // 
@@ -481,7 +502,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(928, 684);
+            this.tabControl1.Size = new System.Drawing.Size(916, 683);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -490,25 +511,10 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(920, 658);
+            this.tabPage1.Size = new System.Drawing.Size(908, 657);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Workspace";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // panel1
-            // 
-            this.panel1.Blocks = null;
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.GridColor = System.Drawing.Color.Black;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.ShowGrid = true;
-            this.panel1.Size = new System.Drawing.Size(914, 652);
-            this.panel1.TabIndex = 0;
-            this.panel1.Click += new System.EventHandler(this.panel1_Click);
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
-            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
             // printDialog1
             // 
@@ -518,11 +524,37 @@
             // 
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // modpacksToolStripMenuItem
+            // 
+            this.modpacksToolStripMenuItem.Name = "modpacksToolStripMenuItem";
+            this.modpacksToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.modpacksToolStripMenuItem.Text = "Modpacks...";
+            this.modpacksToolStripMenuItem.Click += new System.EventHandler(this.modpacksToolStripMenuItem_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Blocks = null;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.GridColor = System.Drawing.Color.Black;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.ShowGrid = true;
+            this.panel1.Size = new System.Drawing.Size(902, 651);
+            this.panel1.TabIndex = 0;
+            this.panel1.Click += new System.EventHandler(this.panel1_Click);
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1252, 730);
+            this.ClientSize = new System.Drawing.Size(1235, 729);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
@@ -550,6 +582,7 @@
             this.tabPage3.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -600,6 +633,10 @@
         private System.Windows.Forms.ToolStripMenuItem backupComponentsjsonToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem fullscreenToolStripMenuItem;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripMenuItem createModToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modpacksToolStripMenuItem;
     }
 }
 
