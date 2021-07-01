@@ -8,10 +8,9 @@ An open-source redstone circuit planning and designing tool.
 ![](https://i.imgur.com/rNrQvSC.png)
 
 ## Features
-_All features listed below are in the beta 0.1.0.0 release._
 
-### Custom Parts
-Easily add custom components through the components.json file. Even modded blocks can be represented in RsMapper!
+### Custom Parts and Modpacks
+Custom components can be created directly from within RsMapper using the modpack creator. Modpacks can be easily installed from .rsmp Modpack files.
 
 ### Automatically Check for Updates
 Once installed, you'll never have to manually visit the download page again just to update the program!
