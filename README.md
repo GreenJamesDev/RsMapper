@@ -19,6 +19,6 @@ Once installed, you'll never have to manually visit the download page again just
 RsMapper can redownload Components.json if it's missing.
 
 ### More on the way!
-Many other features are planned including multiple wire colors and custom component packs.
+Many other features are planned!
 
 ![](https://i.imgur.com/4ZdnxMI.png)
