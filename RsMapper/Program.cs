@@ -5,13 +5,15 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.IO.Compression;
 
 namespace RsMapper
 {
     static class Program
     {
         public static bool NoJson = false;
-
+        public static string AppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\RsMapper";
 
         /// <summary>
         /// The main entry point for the application.
@@ -21,6 +23,8 @@ namespace RsMapper
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+
             if (args.Length == 0)
             {
                 // Check for missing files.
@@ -28,21 +32,43 @@ namespace RsMapper
                 sc.CheckAll();
 
             
-            } else if (args[0] == "--disable-json-check")
-            {
-                // If the runtime argument --disable-update-check
-                // is passed, tell RsMapper to ignore the
-                // Components.json file.
-                NoJson = true;
-
-            }
+            } 
             else
             {
-                // Check for missing files.
-                PrgmSelfCheck sc = new PrgmSelfCheck();
-                sc.CheckAll();
+                foreach (String arg in args)
+                {
+                    switch (arg)
+                    {
+                        // If the runtime argument --disable-update-check
+                        // is passed, tell RsMapper to ignore the
+                        // Components.json file.
+                        case "--disable-json-check":
+                            NoJson = true;
+                            break;
+                        default:
 
+                            // If RsMapper is used to open a modpack file.
+                            if (arg.Contains(":\\")){
+                                
+                                try
+                                {
+                                    ZipFile.ExtractToDirectory(arg, AppData + "\\Modpacks\\" + Path.GetFileName(arg));
+                                    MessageBox.Show("Modpack installed successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show("Modpack installation failed or invalid command line argument.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                                
+                            }
 
+                            // Check for missing files.
+                            PrgmSelfCheck sc = new PrgmSelfCheck();
+                            sc.CheckAll();
+                            break;
+                    }
+                }
+                
             }
            
             // Create a new update thread.
