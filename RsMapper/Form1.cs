@@ -466,17 +466,46 @@ namespace RsMapper
 
                     // If the component is a command block, show the set command
                     // dialog and give the command block the command.
-                    if (listvi.Text == "Command Block")
+                    CommandEnter ce;
+                    switch (listvi.Text)
                     {
                         
-                        CommandEnter ce = new CommandEnter();
 
-                        if (ce.ShowDialog() == DialogResult.OK)
-                        {
+                        case "Command Block":
+                            ce = new CommandEnter("Enter Command");
 
-                            picb.ComponentTag = ce.Command;
-                        }
-                    } 
+                            if (ce.ShowDialog() == DialogResult.OK)
+                            {
+
+                                picb.ComponentTag = ce.Command;
+                            }
+                            ce.Dispose();
+                            break;
+                        case "Dropper":
+                            ce = new CommandEnter("Enter Dropper Contents");
+
+                            if (ce.ShowDialog() == DialogResult.OK)
+                            {
+
+                                picb.ComponentTag = ce.Command;
+                            }
+                            ce.Dispose();
+                            break;
+                        case "Dispenser":
+                            ce = new CommandEnter("Enter Dispenser Contents");
+
+                            if (ce.ShowDialog() == DialogResult.OK)
+                            {
+
+                                picb.ComponentTag = ce.Command;
+                            }
+                            ce.Dispose();
+                            break;
+                        default:
+
+                            break;
+
+                    }
 
                     // Set rect location to a grid location.
                     rect.Location = p;
@@ -526,7 +555,7 @@ namespace RsMapper
 
                     Rectangle rect = new Rectangle();
 
-                    Image src = Rotate(compImg);
+                    Image src = compImg;
 
                     Graphics graphics = Graphics.FromImage(src);
                     graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
