@@ -13,6 +13,7 @@ namespace RsMapper
     static class Program
     {
         public static bool NoJson = false;
+        public static bool CheckUpdates = true;
         public static string AppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\RsMapper";
 
         /// <summary>
@@ -39,12 +40,22 @@ namespace RsMapper
                 {
                     switch (arg)
                     {
-                        // If the runtime argument --disable-update-check
+                        
+                        // If the runtime argument --disable-json-check
                         // is passed, tell RsMapper to ignore the
                         // Components.json file.
                         case "--disable-json-check":
                             NoJson = true;
                             break;
+
+                        // If the runtime argument --disable-update-check
+                        // is passed, tell RsMapper to skip running
+                        // the update checker.
+                        case "--disable-update-check":
+                            CheckUpdates = false;
+                            break;
+
+                        // If a proper argument isn't sent.
                         default:
 
                             // If RsMapper is used to open a modpack file.
@@ -70,11 +81,13 @@ namespace RsMapper
                 }
                 
             }
-           
-            // Create a new update thread.
-            Thread thread = new Thread(RunUpdateCheck);
-            thread.Start();
-            
+
+            if (CheckUpdates == true)
+            {
+                // Create a new update thread.
+                Thread thread = new Thread(RunUpdateCheck);
+                thread.Start();
+            }
 
             // Run the main form.
             Application.Run(new Form1());
@@ -87,5 +100,6 @@ namespace RsMapper
             uc.ShowDialog();
             uc.Dispose();
         }
+
     }
 }
