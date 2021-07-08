@@ -229,6 +229,7 @@
     <None Include="Imgs\nrail_bend.png" />
     <None Include="Imgs\nrail_straight.png" />
     <None Include="Imgs\prail.png" />
+    <None Include="Imgs\slime_block.png" />
     <Content Include="Imgs\Wires\RS_TDown.png" />
     <Content Include="Imgs\Wires\RS_TLeft.png" />
     <Content Include="Imgs\Wires\RS_TRight.png" />

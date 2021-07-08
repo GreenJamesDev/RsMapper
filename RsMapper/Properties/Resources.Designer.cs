@@ -263,6 +263,16 @@ namespace RsMapper.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap slime_block {
+            get {
+                object obj = ResourceManager.GetObject("slime_block", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap TNT {
             get {
                 object obj = ResourceManager.GetObject("TNT", resourceCulture);

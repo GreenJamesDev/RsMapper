@@ -286,6 +286,16 @@
             "info": "Emits a signal when a minecart is on it.",
             "acceptswire": "no"
 
+        },
+
+        {
+
+            "name": "Slime Block",
+            "type": "Misc",
+            "image": "\\Imgs\\slime_block.png",
+            "info": "Moves adjacent blocks when pushed or pulled by a piston.",
+            "acceptswire": "no"
+
         }
     ]
 }
