@@ -75,6 +75,7 @@
             this.backupComponentsjsonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.createModToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modpacksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.documentationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -92,7 +93,6 @@
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.modpacksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new RsMapper.Forms.Controls.DrawPanel();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -335,12 +335,19 @@
             this.createModToolStripMenuItem.Text = "Create Mod...";
             this.createModToolStripMenuItem.Click += new System.EventHandler(this.createModToolStripMenuItem_Click);
             // 
+            // modpacksToolStripMenuItem
+            // 
+            this.modpacksToolStripMenuItem.Name = "modpacksToolStripMenuItem";
+            this.modpacksToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.modpacksToolStripMenuItem.Text = "Modpacks...";
+            this.modpacksToolStripMenuItem.Click += new System.EventHandler(this.modpacksToolStripMenuItem_Click);
+            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem,
-            this.documentationToolStripMenuItem,
             this.toolStripSeparator5,
+            this.documentationToolStripMenuItem,
             this.feedbackToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
@@ -349,7 +356,7 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aboutToolStripMenuItem.Text = "About...";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -357,20 +364,20 @@
             // 
             this.documentationToolStripMenuItem.Name = "documentationToolStripMenuItem";
             this.documentationToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.documentationToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.documentationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.documentationToolStripMenuItem.Text = "Documentation";
             this.documentationToolStripMenuItem.Click += new System.EventHandler(this.documentationToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(173, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
             // 
             // feedbackToolStripMenuItem
             // 
             this.feedbackToolStripMenuItem.Name = "feedbackToolStripMenuItem";
             this.feedbackToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F1)));
-            this.feedbackToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.feedbackToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.feedbackToolStripMenuItem.Text = "Feedback";
             this.feedbackToolStripMenuItem.Click += new System.EventHandler(this.feedbackToolStripMenuItem_Click);
             // 
@@ -528,13 +535,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // modpacksToolStripMenuItem
-            // 
-            this.modpacksToolStripMenuItem.Name = "modpacksToolStripMenuItem";
-            this.modpacksToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
-            this.modpacksToolStripMenuItem.Text = "Modpacks...";
-            this.modpacksToolStripMenuItem.Click += new System.EventHandler(this.modpacksToolStripMenuItem_Click);
-            // 
             // panel1
             // 
             this.panel1.Blocks = null;
@@ -639,4 +639,3 @@
         private System.Windows.Forms.ToolStripMenuItem modpacksToolStripMenuItem;
     }
 }
-

@@ -232,6 +232,7 @@
   <ItemGroup>
     <Folder Include="GFX\" />
     <Folder Include="Parts\" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
