@@ -353,8 +353,6 @@ namespace RsMapper
             CancelFormExit = false;
             UnsavedDialog unsavedDialog = new UnsavedDialog();
             
-            unsavedDialog.Disposed += unsavedDialog_Disposed;
-
             // If there are unsaved changes, show a confirmation dialog and
             // handle the result accordingly.
             if (unsavedChanges == true)
@@ -417,19 +415,6 @@ namespace RsMapper
             
         }
 
-        private void unsavedDialog_Disposed(object sender, EventArgs e)
-        {
-            
-        }
-
-        protected void panel1_Paint(object sender, PaintEventArgs e)
-        {
-            
-            
-
-        }
-
-       
 
         private void documentationToolStripMenuItem_Click(object sender, EventArgs e)
         {
