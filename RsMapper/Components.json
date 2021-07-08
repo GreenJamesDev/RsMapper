@@ -236,6 +236,56 @@
             "info": "Emits a redstone signal when struck by lightning.",
             "acceptswire": "no"
 
+        },
+
+        {
+
+            "name": "Straight Rail",
+            "type": "Misc",
+            "image": "\\Imgs\\nrail_straight.png",
+            "info": "A normal rail.",
+            "acceptswire": "no"
+
+        },
+
+        {
+
+            "name": "Curved Rail",
+            "type": "Misc",
+            "image": "\\Imgs\\nrail_bend.png",
+            "info": "A normal rail.",
+            "acceptswire": "no"
+
+        },
+
+        {
+
+            "name": "Powered Rail",
+            "type": "Output",
+            "image": "\\Imgs\\prail.png",
+            "info": "A rail that increases or decreases the speed of minecarts.",
+            "acceptswire": "no"
+
+        },
+
+        {
+
+            "name": "Activator Rail",
+            "type": "Output",
+            "image": "\\Imgs\\arail.png",
+            "info": "Ejects entities from minecarts, primes TNT minecarts, disables hopper minecarts, and activates command block minecarts.",
+            "acceptswire": "no"
+
+        },
+
+        {
+
+            "name": "Detector Rail",
+            "type": "Input",
+            "image": "\\Imgs\\drail.png",
+            "info": "Emits a signal when a minecart is on it.",
+            "acceptswire": "no"
+
         }
     ]
 }

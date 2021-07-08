@@ -223,7 +223,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon_0uP_icon.ico" />
+    <None Include="Imgs\arail.png" />
+    <None Include="Imgs\drail.png" />
     <Content Include="Imgs\lightning_rod.png" />
+    <None Include="Imgs\nrail_bend.png" />
+    <None Include="Imgs\nrail_straight.png" />
+    <None Include="Imgs\prail.png" />
     <Content Include="Imgs\Wires\RS_TDown.png" />
     <Content Include="Imgs\Wires\RS_TLeft.png" />
     <Content Include="Imgs\Wires\RS_TRight.png" />
