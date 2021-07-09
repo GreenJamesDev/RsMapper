@@ -75,10 +75,11 @@
             this.backupComponentsjsonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.createModToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modpacksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.documentationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.documentationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.feedbackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tabControl2 = new System.Windows.Forms.TabControl();
@@ -92,7 +93,6 @@
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.modpacksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new RsMapper.Forms.Controls.DrawPanel();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -335,12 +335,19 @@
             this.createModToolStripMenuItem.Text = "Create Mod...";
             this.createModToolStripMenuItem.Click += new System.EventHandler(this.createModToolStripMenuItem_Click);
             // 
+            // modpacksToolStripMenuItem
+            // 
+            this.modpacksToolStripMenuItem.Name = "modpacksToolStripMenuItem";
+            this.modpacksToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.modpacksToolStripMenuItem.Text = "Modpacks...";
+            this.modpacksToolStripMenuItem.Click += new System.EventHandler(this.modpacksToolStripMenuItem_Click);
+            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem,
-            this.documentationToolStripMenuItem,
             this.toolStripSeparator5,
+            this.documentationToolStripMenuItem,
             this.feedbackToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
@@ -353,6 +360,11 @@
             this.aboutToolStripMenuItem.Text = "About...";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(173, 6);
+            // 
             // documentationToolStripMenuItem
             // 
             this.documentationToolStripMenuItem.Name = "documentationToolStripMenuItem";
@@ -360,11 +372,6 @@
             this.documentationToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.documentationToolStripMenuItem.Text = "Documentation";
             this.documentationToolStripMenuItem.Click += new System.EventHandler(this.documentationToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(173, 6);
             // 
             // feedbackToolStripMenuItem
             // 
@@ -528,13 +535,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // modpacksToolStripMenuItem
-            // 
-            this.modpacksToolStripMenuItem.Name = "modpacksToolStripMenuItem";
-            this.modpacksToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
-            this.modpacksToolStripMenuItem.Text = "Modpacks...";
-            this.modpacksToolStripMenuItem.Click += new System.EventHandler(this.modpacksToolStripMenuItem_Click);
-            // 
             // panel1
             // 
             this.panel1.Blocks = null;
@@ -546,7 +546,6 @@
             this.panel1.Size = new System.Drawing.Size(902, 651);
             this.panel1.TabIndex = 0;
             this.panel1.Click += new System.EventHandler(this.panel1_Click);
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
@@ -639,4 +638,3 @@
         private System.Windows.Forms.ToolStripMenuItem modpacksToolStripMenuItem;
     }
 }
-

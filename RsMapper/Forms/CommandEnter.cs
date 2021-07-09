@@ -15,9 +15,11 @@ namespace RsMapper.Forms
 
         public string Command;
 
-        public CommandEnter()
+        public CommandEnter(string text)
         {
             InitializeComponent();
+            this.Text = text;
+            label1.Text = text + ":";
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

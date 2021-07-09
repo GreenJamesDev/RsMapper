@@ -16,11 +16,14 @@ namespace RsMapper.Forms
     {
 
         string AppData;
+        
 
-        public Modpacks()
+        public Modpacks(bool modpackOpen = false, string path = null)
         {
             InitializeComponent();
             AppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\RsMapper";
+
+            
         }
 
         private void Modpacks_Load(object sender, EventArgs e)
